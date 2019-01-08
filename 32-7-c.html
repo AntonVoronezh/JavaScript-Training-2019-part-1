@@ -91,6 +91,32 @@
 
 
 
+    <h3>Задача 2. Модифицируйте предыдущую задачу так, чтобы по нажатию на любую td-шку
+        в ней появлялось число 1</h3>
+
+    <table class="tbl2"></table>
+
+    <script>
+        const getTbl2 = document.querySelector('.tbl2');
+
+
+        for (let i = 0; i < 3; i += 1) {
+
+            const makeTr = document.createElement('tr');
+
+            for (let j = 0; j < 3; j += 1) {
+
+                const makeTd = document.createElement('td');
+
+                makeTr.appendChild(makeTd)
+
+            }
+
+            getTbl2.appendChild(makeTr);
+
+        }
+
+
 
    
 
