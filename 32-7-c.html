@@ -67,8 +67,139 @@
 
     <table class="tbl1"></table>
 
+    <script>
+        const getTbl1 = document.querySelector('.tbl1');
+
+        for (let i = 0; i < 3; i += 1) {
+
+            const makeTr = document.createElement('tr');
+
+            for (let j = 0; j < 3; j += 1) {
+
+                const makeTd = document.createElement('td');
+
+                makeTr.appendChild(makeTd)
+
+            }
+
+            getTbl1.appendChild(makeTr);
+
+        }
+
+    </script>
+    <hr>
 
 
+
+    <h3>Задача 2. Модифицируйте предыдущую задачу так, чтобы по нажатию на любую td-шку
+        в ней появлялось число 1</h3>
+
+    <table class="tbl2"></table>
+
+    <script>
+        const getTbl2 = document.querySelector('.tbl2');
+
+
+        for (let i = 0; i < 3; i += 1) {
+
+            const makeTr = document.createElement('tr');
+
+            for (let j = 0; j < 3; j += 1) {
+
+                const makeTd = document.createElement('td');
+
+                makeTr.appendChild(makeTd)
+
+            }
+
+            getTbl2.appendChild(makeTr);
+
+        }
+
+
+        const getAllTd = getTbl2.querySelectorAll('td');
+        // console.log(getAllTd.length);
+
+
+        getAllTd.forEach(elem => {
+
+            elem.addEventListener('click', function () {
+
+                elem.innerHTML = '1';
+
+            });
+
+        });
+
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 3. Модифицируйте предыдущую задачу так, чтобы когда мы жмем
+        на первую td-шку, в ней появлялось число 1, а когда ждем на следующую
+        td-шку - то число 2. Потом опять число 1, и затем число 2 и так далее.
+        При этом, если в td-шке уже есть число - новое число не должно вставляться.</h3>
+
+    <table class="tbl3"></table>
+
+    <script>
+        const getTbl3 = document.querySelector('.tbl3');
+
+
+        for (let i = 0; i < 3; i += 1) {
+
+            const makeTr = document.createElement('tr');
+
+            for (let j = 0; j < 3; j += 1) {
+
+                const makeTd = document.createElement('td');
+
+                makeTd.classList.add('ok');
+
+                makeTr.appendChild(makeTd)
+
+            }
+
+            getTbl3.appendChild(makeTr);
+
+        }
+
+
+        const getAllTd3 = getTbl3.querySelectorAll('td');
+        // console.log(getAllTd.length);
+
+        let flag = false;
+
+
+        getAllTd3.forEach(elem => {
+
+            elem.addEventListener('click', function addNumber() {
+
+                if (flag) {
+
+                    elem.innerHTML = '1';
+
+                    flag = false;
+
+                } else {
+
+                    elem.innerHTML = '2';
+
+                    flag = true;
+
+                }
+
+                elem.removeEventListener('click', addNumber);
+
+            });
+
+        });
+
+
+    </script>
+    <hr>
+    <hr>
 
 
    
