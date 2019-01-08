@@ -147,6 +147,29 @@
         const getTbl3 = document.querySelector('.tbl3');
 
 
+        for (let i = 0; i < 3; i += 1) {
+
+            const makeTr = document.createElement('tr');
+
+            for (let j = 0; j < 3; j += 1) {
+
+                const makeTd = document.createElement('td');
+
+                makeTd.classList.add('ok');
+
+                makeTr.appendChild(makeTd)
+
+            }
+
+            getTbl3.appendChild(makeTr);
+
+        }
+
+
+        const getAllTd3 = getTbl3.querySelectorAll('td');
+        // console.log(getAllTd.length);
+
+        let flag = false;
 
 
 
