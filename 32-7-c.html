@@ -117,6 +117,25 @@
         }
 
 
+        const getAllTd = getTbl2.querySelectorAll('td');
+        // console.log(getAllTd.length);
+
+
+        getAllTd.forEach(elem => {
+
+            elem.addEventListener('click', function () {
+
+                elem.innerHTML = '1';
+
+            });
+
+        });
+
+
+    </script>
+    <hr>
+
+
 
    
 
