@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            padding-left: 30px;
+        }
+
+        .active {
+            background-color: red;
+        }
+
+        .tbl1 td,
+        .tbl2 td,
+        .tbl3 td,
+        .tbl4 td {
+            border: 1px solid #000000;
+            width: 50px;
+            height: 50px;
+            /* margin-right: 10px; */
+            text-align: cnter;
+        }
+
+        /* td {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        } */
+
+
+        .next,
+        .prev {
+            cursor: pointer;
+        }
+
+        .dn {
+            display: none;
+        }
+
+        .a {
+            display: inline-block;
+            cursor: pointer;
+            padding: 10px;
+            border: 1px solid #000000;
+            margin: 10px;
+        }
+    </style>
+    <title>AntonVoronezh учеба по JavaScript DOM </title>
+</head>
+
+<body>
+    <h1>AntonVoronezh учеба по JavaScript DOM</h1>
+    <h2>Задачи на продвинутую работу с функциями JavaScript</h2>
+    <h2>http://theory.phphtml.net/courses/javascript/practice/8/c.html</h2>
+
+    <h3>Задача 1. Сделайте функцию range, которая параметрами будет принимать
+        два целых числа и возвращать массив, заполненный целыми числами в этом промежутке.
+        Например, range(1, 5) должно вернуть массив [1, 2, 3, 4, 5].</h3>
+
+
+
+    <script>
+
+        function range(argMin, argMax) {
+
+            const result = [];
+
+            for (let i = argMin; i < argMax + 1; i += 1) {
+
+                result.push(i);
+
+            }
+
+            return result;
+
+        };
+
+        console.log(range(2, 4));
+
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 2. Сделайте функцию shuffle, которая параметром будет
+        принимать массив, а возвращать этот массив, в котором элементы
+        будут перемешаны в случайном порядке.</h3>
+
+
+
+    <script>
+
+        function shuffle(argArr) {
+
+            function compareRandom(a, b) {
+                return Math.random() - 0.5;
+            }
+
+            return argArr.sort(compareRandom);
+
+        };
+
+        console.log(shuffle([1, 2, 3, 4]));
+
+
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 3. Сделайте функцию createTable, которая параметром будет
+        принимать массив и создавать таблицу table, заполненную элементами
+        из этого массива.</h3>
+
+    <table class="tbl1"></table>
+
+    <script>
+
+        function createTable(argArr, argDiv) {
+
+            const getTbl1 = document.querySelector('.tbl1');
+
+            let makeTr;
+
+            for (let i = 0; i < argArr.length; i += 1) {
+
+
+                if (i === 0 || i % argDiv === 0) {
+                    makeTr = document.createElement('tr');
+                }
+
+                let makeTd = document.createElement('td');
+
+                makeTd.innerHTML = argArr[i];
+
+                makeTr.appendChild(makeTd);
+
+                if (i === 0 || i % argDiv === 0) {
+                    getTbl1.appendChild(makeTr);
+                }
+            }
+
+
+        };
+
+        createTable(range(1, 16), 4);
+
+    </script>
+    <hr>
+
+
+
+    <h3>Задача 4. С помощью функции range сделайте массив, заполненный числами от 1 до 25.
+        С помощью функции createTable создайте таблицу, заполненную элементами из этого массива.</h3>
+
+    <table class="tbl2"></table>
+
+    <script>
+
+        function createTable(argArr, argDiv) {
+
+            const getTbl1 = document.querySelector('.tbl2');
+
+            let makeTr;
+
+            for (let i = 0; i < argArr.length; i += 1) {
+
+
+                if (i === 0 || i % argDiv === 0) {
+                    makeTr = document.createElement('tr');
+                }
+
+                let makeTd = document.createElement('td');
+
+                makeTd.innerHTML = argArr[i];
+
+                makeTr.appendChild(makeTd);
+
+                if (i === 0 || i % argDiv === 0) {
+                    getTbl1.appendChild(makeTr);
+                }
+            }
+
+
+        };
+
+        createTable(range(1, 25), 5);
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 5. Модифицируйте предыдущую задачу так, чтобы таблица заполнялась
+        числами от 1 до 25 в случайном порядке. Для этого, после того, как вы
+        сделаете массив функцией range, обработайте его функцией shuffle.</h3>
+
+    <table class="tbl3"></table>
+
+    <script>
+
+        function createTable(argArr, argDiv) {
+
+            const getTbl1 = document.querySelector('.tbl3');
+
+            let makeTr;
+
+            for (let i = 0; i < argArr.length; i += 1) {
+
+
+                if (i === 0 || i % argDiv === 0) {
+                    makeTr = document.createElement('tr');
+                }
+
+                let makeTd = document.createElement('td');
+
+                makeTd.innerHTML = argArr[i];
+
+                makeTr.appendChild(makeTd);
+
+                if (i === 0 || i % argDiv === 0) {
+                    getTbl1.appendChild(makeTr);
+                }
+            }
+
+
+        };
+
+        createTable(shuffle(range(1, 25)), 5);
+
+    </script>
+
+    <hr>
+
+    <h3>Задача 6. Модифицируйте предыдущую задачу так, чтобы по клику на любую
+        ячейку она активировалась - это значит становилась красного фона.</h3>
+
+    <table class="tbl4"></table>
+
+    <script>
+
+        function createTable(argArr, argDiv) {
+
+            const getTbl = document.querySelector('.tbl4');
+
+            let makeTr;
+
+            for (let i = 0; i < argArr.length; i += 1) {
+
+
+                if (i === 0 || i % argDiv === 0) {
+                    makeTr = document.createElement('tr');
+                }
+
+                let makeTd = document.createElement('td');
+
+                makeTd.innerHTML = argArr[i];
+
+                makeTr.appendChild(makeTd);
+
+                if (i === 0 || i % argDiv === 0) {
+                    getTbl.appendChild(makeTr);
+                }
+            }
+
+
+            const getAllTd = getTbl.querySelectorAll('td');
+
+            getAllTd.forEach(elem => {
+
+                elem.addEventListener('click', function addActive() {
+
+                    elem.classList.add('active');
+
+                });
+
+            });
+
+
+        };
+
+        createTable(shuffle(range(1, 25)), 5);
+
+    </script>
+
+
+
+
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+</body>
+
+</html>
