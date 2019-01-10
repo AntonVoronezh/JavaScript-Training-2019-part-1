@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            padding-left: 30px;
+        }
+
+        .active {
+            background-color: red;
+        }
+
+        .tbl1 td,
+        .tbl2 td,
+        .tbl3 td,
+        .tbl4 td {
+            border: 1px solid #000000;
+            width: 50px;
+            height: 50px;
+            /* margin-right: 10px; */
+            text-align: cnter;
+        }
+
+        /* td {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        } */
+
+
+        .next,
+        .prev {
+            cursor: pointer;
+        }
+
+        .dn {
+            display: none;
+        }
+
+        .a {
+            display: inline-block;
+            cursor: pointer;
+            padding: 10px;
+            border: 1px solid #000000;
+            margin: 10px;
+        }
+    </style>
+    <title>AntonVoronezh учеба по JavaScript DOM </title>
+</head>
+
+<body>
+    <h1>AntonVoronezh учеба по JavaScript DOM</h1>
+    <h2>Задачи на продвинутую работу с функциями JavaScript</h2>
+    <h2>http://theory.phphtml.net/courses/javascript/practice/7/h.html</h2>
+
+    <h3>Задача 1. Дан массив с числами. Выведите эти числа на экран в виде таблицы table.</h3>
+
+    <table class="tbl1"></table>
+
+    <script>
+        const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+        const getTbl1 = document.querySelector('.tbl1');
+
+        let makeTr;
+
+        for (let i = 0; i < arr.length; i += 1) {
+
+
+            if (i === 0 || i % 3 === 0) {
+                makeTr = document.createElement('tr');
+            }
+
+            let makeTd = document.createElement('td');
+
+            makeTd.innerHTML = arr[i];
+
+            makeTr.appendChild(makeTd);
+
+            if (i === 0 || i % 3 === 0) {
+                getTbl1.appendChild(makeTr);
+            }
+        }
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 2. Модифицируйте предыдущую задачу так, чтобы по нажатию на любую
+        ячейку она активировалась - это значит становилась красного фона. Совет:
+        активацию ячеек лучше делать навешиванием какого-либо CSS класса, например, класса active.</h3>
+
+    <table class="tbl2"></table>
+
+    <script>
+        const arr2 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+        const getTbl2 = document.querySelector('.tbl2');
+
+        let makeTr2;
+
+        for (let i = 0; i < arr2.length; i += 1) {
+
+
+            if (i === 0 || i % 3 === 0) {
+                makeTr2 = document.createElement('tr');
+            }
+
+            let makeTd = document.createElement('td');
+
+            makeTd.innerHTML = arr[i];
+
+            makeTr2.appendChild(makeTd);
+
+            if (i === 0 || i % 3 === 0) {
+                getTbl2.appendChild(makeTr2);
+            }
+        }
+
+        const getAllTd = getTbl2.querySelectorAll('td');
+
+        getAllTd.forEach(elem => {
+
+            elem.addEventListener('click', function addActive() {
+
+                elem.classList.add('active');
+
+            });
+
+        });
+
+    </script>
+    <hr>
+
+    <h3>Задача 3. Модифицируйте предыдущую задачу так, чтобы по нажатию на активированную ячейку,
+        активация с нее снималась.</h3>
+
+    <table class="tbl3"></table>
+
+    <script>
+        const arr3 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+        const getTbl3 = document.querySelector('.tbl3');
+
+        let makeTr3;
+
+        for (let i = 0; i < arr3.length; i += 1) {
+
+
+            if (i === 0 || i % 3 === 0) {
+                makeTr3 = document.createElement('tr');
+            }
+
+            let makeTd = document.createElement('td');
+
+            makeTd.innerHTML = arr[i];
+
+            makeTr3.appendChild(makeTd);
+
+            if (i === 0 || i % 3 === 0) {
+                getTbl3.appendChild(makeTr3);
+            }
+        }
+
+        const getAllTd3 = getTbl3.querySelectorAll('td');
+
+        getAllTd3.forEach(elem => {
+
+            elem.addEventListener('click', function addActive() {
+
+                elem.classList.toggle('active');
+
+            });
+
+        });
+
+    </script>
+    <hr>
+
+    <h3>Задача 4. Модифицируйте предыдущую задачу так, чтобы под таблицей
+        выводилась сумма активированных в данный момент ячеек.</h3>
+
+    <table class="tbl4"></table>
+    <p class="p4"></p>
+
+    <script>
+        const arr4 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+        const getTbl4 = document.querySelector('.tbl4');
+        const getP4 = document.querySelector('.p4');
+
+
+        let makeTr4;
+
+        for (let i = 0; i < arr4.length; i += 1) {
+
+
+            if (i === 0 || i % 3 === 0) {
+                makeTr4 = document.createElement('tr');
+            }
+
+            let makeTd = document.createElement('td');
+
+            makeTd.innerHTML = arr[i];
+
+            makeTr4.appendChild(makeTd);
+
+            if (i === 0 || i % 3 === 0) {
+                getTbl4.appendChild(makeTr4);
+            }
+        }
+
+        const getAllTd4 = getTbl4.querySelectorAll('td');
+
+
+        getAllTd4.forEach(elem => {
+
+            elem.addEventListener('click', function addActive() {
+                
+
+                elem.classList.toggle('active');
+
+                getActiveSum();
+
+            });
+
+        });
+
+
+        function getActiveSum() {
+
+            const getAllActive4 = getTbl4.querySelectorAll('.active');
+
+            // console.log(getAllActive4.length);
+            
+
+            let sum = 0;
+
+            getAllActive4.forEach(elem => {
+
+                sum += +elem.innerHTML;
+
+            });
+
+            getP4.innerHTML = sum;
+
+        };
+
+
+
+
+    </script>
+    <hr>
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+</body>
+
+</html>
