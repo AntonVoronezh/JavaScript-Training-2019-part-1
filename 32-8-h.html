@@ -305,7 +305,17 @@
 
                 getAllTd.forEach(elem => {
 
+                    elem.addEventListener('click', function addActive() {
 
+                        if (isNext(+elem.innerHTML) === +elem.innerHTML) {
+
+                            elem.classList.add('active');
+
+                            elem.removeEventListener('clcick', addActive);
+
+                        }
+
+                    });
 
                 });
 
