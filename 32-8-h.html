@@ -373,6 +373,24 @@
                 const getSpan = getPlace.querySelector('.result');
                 const getDiv = getPlace.querySelector('.end-time');
 
+                getAllTd.forEach(elem => {
+
+
+                    // elem.classList.remove('active');
+
+                    elem.classList.add('end');
+
+                    // elem.removeEventListener('click', addActive);
+
+                });
+
+                getSpan.innerHTML = getAllActive.length;
+
+                getDiv.innerHTML = '<h3>Конец игры</h3>';
+
+                elem2.style.display = 'block';
+
+                makeBtnDis();
 
             };
 
