@@ -125,6 +125,47 @@
     <hr>
 
 
+    <h3>Задача 3. Сделайте функцию createTable, которая параметром будет
+        принимать массив и создавать таблицу table, заполненную элементами
+        из этого массива.</h3>
+
+    <table class="tbl1"></table>
+
+    <script>
+
+        function createTable(argArr, argDiv) {
+
+            const getTbl1 = document.querySelector('.tbl1');
+
+            let makeTr;
+
+            for (let i = 0; i < argArr.length; i += 1) {
+
+
+                if (i === 0 || i % argDiv === 0) {
+                    makeTr = document.createElement('tr');
+                }
+
+                let makeTd = document.createElement('td');
+
+                makeTd.innerHTML = argArr[i];
+
+                makeTr.appendChild(makeTd);
+
+                if (i === 0 || i % argDiv === 0) {
+                    getTbl1.appendChild(makeTr);
+                }
+            }
+
+
+        };
+
+        // createTable(range(1, 16), 4);
+
+    </script>
+    <hr>
+
+
 
 
 
