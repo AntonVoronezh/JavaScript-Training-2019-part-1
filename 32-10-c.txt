@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            margin-right: 30px;
+            /* max-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; */
+
+        }
+
+
+        .next,
+        .prev {
+            cursor: pointer;
+        }
+
+        .dn {
+            display: none;
+        }
+
+        .a {
+            display: inline-block;
+            cursor: pointer;
+            padding: 10px;
+            border: 1px solid #000000;
+            margin: 10px;
+        }
+    </style>
+    <title>AntonVoronezh учеба по JavaScript DOM </title>
+</head>
+
+<body>
+    <h1>AntonVoronezh учеба по JavaScript DOM</h1>
+    <h2>Задачи на продвинутую работу с функциями JavaScript</h2>
+    <h2>http://theory.phphtml.net/courses/javascript/practice/10/c.html</h2>
+
+    <h3>Задача 1. Дан массив. Выведите его элементы в виде списка ul.</h3>
+
+    <ul class="ul1"></ul>
+
+    <script>
+
+        const arr1 = [1, 2, 3, 4, 5];
+
+        const getUl1 = document.querySelector('.ul1');
+
+        arr1.forEach(elem => {
+
+            const makeLi = document.createElement('li');
+
+            makeLi.innerHTML = elem;
+
+            getUl1.appendChild(makeLi);
+
+
+        });
+
+
+    </script>
+    <hr>
+
+    <h3>Задача 2-3. Дан массив с юзерами:
+
+        var products = [
+        {name: 'Коля', age: 30},
+        {name: 'Вася', age: 40},
+        {name: 'Петя', age: 50},
+        ];
+        Выведите его элементы в виде списка ul. В каждой li будет имя и возраст юзера.</h3>
+
+    <ul class="ul2"></ul>
+
+    <script>
+
+        const arr2 = [
+            { name: 'Коля', age: 30 },
+            { name: 'Вася', age: 40 },
+            { name: 'Петя', age: 50 },
+        ];
+
+        const getUl2 = document.querySelector('.ul2');
+
+        arr2.forEach(elem => {
+
+            const makeLi = document.createElement('li');
+
+            makeLi.innerHTML = elem.name + ' - ' + elem.age;
+
+            getUl2.appendChild(makeLi);
+
+
+        });
+
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 4. Модифицируйте предыдущую задачу так, чтобы в конце каждой li
+        появилась ссылка 'редактировать'. По нажатию на эту ссылку под ul должны
+        появится кнопка и два инпута, в которых будет имя и возраст пользователя.
+        По нажатию на кнопку данные должны поредактироваться, а инпуты и кнопка спрятаться.</h3>
+
+    <ul class="ul4"></ul>
+    <input type="text" class="inp41 dn">
+    <input type="text" class="inp42 dn">
+    <button class="btn4 dn">hhhhhh</button>
+
+    <script>
+
+        const arr4 = [
+            { name: 'Коля', age: 30 },
+            { name: 'Вася', age: 40 },
+            { name: 'Петя', age: 50 },
+        ];
+
+        const getUl4 = document.querySelector('.ul4');
+
+        arr4.forEach(elem => {
+
+            const makeLi = document.createElement('li');
+
+            const makeSpan = document.createElement('span');
+
+            const makeA = document.createElement('a');
+
+            makeA.href = '#';
+
+            makeA.innerHTML = 'dddddddd';
+
+
+
+            makeSpan.innerHTML = elem.name + ' ' + elem.age;
+
+            makeLi.appendChild(makeSpan);
+
+            makeA.addEventListener('click', func4);
+
+            makeLi.appendChild(makeA);
+
+
+            getUl4.appendChild(makeLi);
+        });
+
+
+
+        function func4(event) {
+
+            event.preventDefault();
+
+            const getinp41 = document.querySelector('.inp41');
+            const getinp42 = document.querySelector('.inp42');
+            const getBtn4 = document.querySelector('.btn4');
+
+            getinp41.classList.remove('dn');
+            getinp42.classList.remove('dn');
+            getBtn4.classList.remove('dn');
+
+
+            let getText = event.target.parentElement.firstChild.innerHTML;
+
+            const [name, age] = getText.split(' ');
+
+            getinp41.value = name;
+            getinp42.value = age;
+            // console.log(event.target.parentElement);
+
+            console.log(this);
+
+
+
+
+            getBtn4.addEventListener('click', function (parent) {
+
+                const newText = getinp41.value + ' ' + getinp42.value;
+
+                event.target.parentElement.firstChild.innerHTML = newText;
+
+                getinp41.classList.add('dn');
+                getinp42.classList.add('dn');
+                getBtn4.classList.add('dn');
+
+
+            });
+
+        };
+
+
+    </script>
+    <hr>
+
+
+
+    <h3>Задача 5. Дан чекбокс и абзац. Сделайте так, что если чекбокс отмечен - абзац есть на экране,
+        а если не отмечен - то абзаца нет.</h3>
+    <p class="p5">hhhhhhhhhhh</p>
+    <input type="checkbox" class="inp5" checked>
+
+    <script>
+        const getP5 = document.querySelector('.p5');
+        const getInp5 = document.querySelector('.inp5');
+
+        getInp5.addEventListener('click', () => {
+
+            if (getInp5.checked) {
+                getP5.style.display = 'block';
+            } else {
+                getP5.style.display = 'none';
+            }
+
+        });
+
+
+    </script>
+    <hr>
+
+
+
+    <h3>Задача 6. Дан массив, заполненный значениями true и false. Выведите на экран
+        столько чекбоксов, сколько элементов в массиве. Причем, если значение элемента
+        равно true - пусть чекбокс будет отмечен, а если false - не отмечен.</h3>
+
+    <div class="div6"></div>
+
+    <script>
+
+        const getDiv6 = document.querySelector('.div6');
+
+        const arr6 = [true, false, true, true, false];
+
+
+
+        arr6.forEach(elem => {
+
+            const makeInp = document.createElement('input');
+
+            makeInp.type = "checkbox";
+
+            if (elem) {
+
+                makeInp.checked = true;
+
+
+            }
+
+            getDiv6.appendChild(makeInp);
+
+        });
+
+
+
+    </script>
+    <hr>
+
+
+
+
+    <h3>Задача 7-8. Дан массив с юзерами:
+
+        var products = [
+        {name: 'Коля', active: true},
+        {name: 'Вася', active: true},
+        {name: 'Петя', active: false},
+        ];
+        Выведите его элементы в виде списка ul. Если юзер активный (поле active равно true),
+        выведите его зеленым цветом, а если не активный - красным.</h3>
+
+    <ul class="ul7"></ul>
+
+    <script>
+
+        const getUl7 = document.querySelector('.ul7');
+
+        var obj7 = [
+            { name: 'Коля', active: true },
+            { name: 'Вася', active: true },
+            { name: 'Петя', active: false },
+        ];
+
+        obj7.forEach(elem => {
+
+            const createLi = document.createElement('li');
+
+            createLi.innerHTML = elem.name;
+
+            if (elem.active) {
+
+                createLi.style.color = 'green';
+
+            } else {
+
+                createLi.style.color = 'red';
+
+            }
+
+            getUl7.appendChild(createLi);
+
+        });
+
+
+
+    </script>
+
+
+
+
+
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+</body>
+
+</html>
