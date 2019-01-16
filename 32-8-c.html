@@ -268,7 +268,22 @@
             }
 
 
+            const getAllTd = getTbl.querySelectorAll('td');
 
+            getAllTd.forEach(elem => {
+
+                elem.addEventListener('click', function addActive() {
+
+                    elem.classList.add('active');
+
+                });
+
+            });
+
+
+        };
+
+        createTable(shuffle(range(1, 25)), 5);
 
     </script>
 
