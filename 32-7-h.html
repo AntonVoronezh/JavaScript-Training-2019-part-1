@@ -218,7 +218,19 @@
         const getAllTd4 = getTbl4.querySelectorAll('td');
 
 
- 
+        getAllTd4.forEach(elem => {
+
+            elem.addEventListener('click', function addActive() {
+                
+
+                elem.classList.toggle('active');
+
+                getActiveSum();
+
+            });
+
+        });
+
 
    
 
