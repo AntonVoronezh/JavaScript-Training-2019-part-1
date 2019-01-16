@@ -167,7 +167,18 @@
             }
         }
 
-    
+        const getAllTd3 = getTbl3.querySelectorAll('td');
+
+        getAllTd3.forEach(elem => {
+
+            elem.addEventListener('click', function addActive() {
+
+                elem.classList.toggle('active');
+
+            });
+
+        });
+
     </script>
     <hr>
 
