@@ -76,7 +76,15 @@
                 makeTr = document.createElement('tr');
             }
 
-  
+            let makeTd = document.createElement('td');
+
+            makeTd.innerHTML = arr[i];
+
+            makeTr.appendChild(makeTd);
+
+            if (i === 0 || i % 3 === 0) {
+                getTbl1.appendChild(makeTr);
+            }
         }
 
     </script>
