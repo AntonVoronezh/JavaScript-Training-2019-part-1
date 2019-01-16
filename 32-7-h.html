@@ -122,7 +122,20 @@
             }
         }
 
+        const getAllTd = getTbl2.querySelectorAll('td');
 
+        getAllTd.forEach(elem => {
+
+            elem.addEventListener('click', function addActive() {
+
+                elem.classList.add('active');
+
+            });
+
+        });
+
+    </script>
+    <hr>
 
    
  
