@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            padding-left: 30px;
+        }
+
+        .active {
+            background-color: red;
+        }
+
+        .tbl1 td,
+        .tbl2 td,
+        .tbl3 td,
+        .tbl4 td {
+            border: 1px solid #000000;
+            width: 50px;
+            height: 50px;
+            /* margin-right: 10px; */
+            text-align: cnter;
+        }
+
+        /* td {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        } */
+
+
+        .next,
+        .prev {
+            cursor: pointer;
+        }
+
+        .dn {
+            display: none;
+        }
+
+        .a {
+            display: inline-block;
+            cursor: pointer;
+            padding: 10px;
+            border: 1px solid #000000;
+            margin: 10px;
+        }
+    </style>
+    <title>AntonVoronezh учеба по JavaScript DOM </title>
+</head>
+
+<body>
+    <h1>AntonVoronezh учеба по JavaScript DOM</h1>
+    <h2>Задачи на продвинутую работу с функциями JavaScript</h2>
+    <h2>http://theory.phphtml.net/courses/javascript/practice/8/c.html</h2>
+
+    <h3>Задача 1. Сделайте функцию range, которая параметрами будет принимать
+        два целых числа и возвращать массив, заполненный целыми числами в этом промежутке.
+        Например, range(1, 5) должно вернуть массив [1, 2, 3, 4, 5].</h3>
+
+
+
+    <script>
+
+        function range(argMin, argMax) {
+
+            const result = [];
+
+            for (let i = argMin; i < argMax + 1; i += 1) {
+
+                result.push(i);
+
+            }
+
+            return result;
+
+        };
+
+        console.log(range(2, 4));
+
+
+    </script>
+    <hr>
+
+
+   
+
+
+
+
+
+
+
+
+
+
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+</body>
+
+</html>
