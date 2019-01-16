@@ -232,7 +232,24 @@
         });
 
 
-   
+        function getActiveSum() {
+
+            const getAllActive4 = getTbl4.querySelectorAll('.active');
+
+            // console.log(getAllActive4.length);
+            
+
+            let sum = 0;
+
+            getAllActive4.forEach(elem => {
+
+                sum += +elem.innerHTML;
+
+            });
+
+            getP4.innerHTML = sum;
+
+        };
 
 
 
