@@ -87,7 +87,31 @@
     <hr>
 
 
-   
+    <h3>Задача 2. Сделайте функцию shuffle, которая параметром будет
+        принимать массив, а возвращать этот массив, в котором элементы
+        будут перемешаны в случайном порядке.</h3>
+
+
+
+    <script>
+
+        function shuffle(argArr) {
+
+            function compareRandom(a, b) {
+                return Math.random() - 0.5;
+            }
+
+            return argArr.sort(compareRandom);
+
+        };
+
+        console.log(shuffle([1, 2, 3, 4]));
+
+
+
+    </script>
+    <hr>
+
 
 
 
