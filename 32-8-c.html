@@ -203,7 +203,34 @@
 
     <script>
 
+        function createTable(argArr, argDiv) {
 
+            const getTbl1 = document.querySelector('.tbl3');
+
+            let makeTr;
+
+            for (let i = 0; i < argArr.length; i += 1) {
+
+
+                if (i === 0 || i % argDiv === 0) {
+                    makeTr = document.createElement('tr');
+                }
+
+                let makeTd = document.createElement('td');
+
+                makeTd.innerHTML = argArr[i];
+
+                makeTr.appendChild(makeTd);
+
+                if (i === 0 || i % argDiv === 0) {
+                    getTbl1.appendChild(makeTr);
+                }
+            }
+
+
+        };
+
+        createTable(shuffle(range(1, 25)), 5);
 
     </script>
 
