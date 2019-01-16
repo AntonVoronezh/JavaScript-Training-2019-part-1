@@ -111,7 +111,17 @@
                 makeTr2 = document.createElement('tr');
             }
 
-   
+            let makeTd = document.createElement('td');
+
+            makeTd.innerHTML = arr[i];
+
+            makeTr2.appendChild(makeTd);
+
+            if (i === 0 || i % 3 === 0) {
+                getTbl2.appendChild(makeTr2);
+            }
+        }
+
 
 
    
