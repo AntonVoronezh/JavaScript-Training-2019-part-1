@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            padding-left: 30px;
+        }
+
+        .active {
+            background-color: red;
+        }
+
+        .tbl1 td,
+        .tbl2 td,
+        .tbl3 td,
+        .tbl4 td {
+            border: 1px solid #000000;
+            width: 50px;
+            height: 50px;
+            /* margin-right: 10px; */
+            text-align: cnter;
+        }
+
+        /* td {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        } */
+
+
+        .next,
+        .prev {
+            cursor: pointer;
+        }
+
+        .dn {
+            display: none;
+        }
+
+        .a {
+            display: inline-block;
+            cursor: pointer;
+            padding: 10px;
+            border: 1px solid #000000;
+            margin: 10px;
+        }
+    </style>
+    <title>AntonVoronezh учеба по JavaScript DOM </title>
+</head>
+
+<body>
+    <h1>AntonVoronezh учеба по JavaScript DOM</h1>
+    <h2>Задачи на продвинутую работу с функциями JavaScript</h2>
+    <h2>http://theory.phphtml.net/courses/javascript/practice/9/h.html</h2>
+
+    <h3>Задача 1. Даны абзацы. Сделайте так, чтобы по клику на любой абзац
+        он становился красного цвета. Решите задачу путем добавления этому
+        абзацу CSS класса active, который и будет задавать красный цвет.</h3>
+
+    <p class="p1">1</p>
+    <p class="p1">2</p>
+    <p class="p1">3</p>
+    <p class="p1">4</p>
+
+    <script>
+
+        const getAllP = document.querySelectorAll('.p1');
+
+        getAllP.forEach(elem => {
+
+            elem.addEventListener('click', function() {
+
+                elem.classList.add('active');
+
+            });
+
+        });
+
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 2.  Модифицируйте предыдущую задачу так, чтобы красным 
+        цветом всегда был выделен только один абзац. При нажатии на другой абзац 
+        именно он должен становится красным, а предыдущий должен возвращаться черному цвету.</h3>
+
+    <p class="p2">1</p>
+    <p class="p2">2</p>
+    <p class="p2">3</p>
+    <p class="p2">4</p>
+
+    <script>
+        
+        const getAllP2 = document.querySelectorAll('.p2');
+
+        getAllP2.forEach(elem => {
+
+            elem.addEventListener('click', function() {
+
+                getAllP2.forEach(item => {
+
+                    item.classList.remove('active');  
+
+                });
+
+                elem.classList.add('active');
+
+            });
+
+        });
+
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 3.  Реализуйте вкладки. Нажимая на каждую вкладку мы будем 
+        видеть ниже текст, соответствующий этой вкладке.</h3>
+    
+        <p class="p2">1</p>
+        <p class="p2">2</p>
+        <p class="p2">3</p>
+        <p class="p2">4</p>
+    
+        <script>
+            
+            const getAllP2 = document.querySelectorAll('.p2');
+    
+            getAllP2.forEach(elem => {
+    
+                elem.addEventListener('click', function() {
+    
+                    getAllP2.forEach(item => {
+    
+                        item.classList.remove('active');  
+    
+                    });
+    
+                    elem.classList.add('active');
+    
+                });
+    
+            });
+    
+    
+        </script>
+        <hr>
+
+
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+</body>
+
+</html>

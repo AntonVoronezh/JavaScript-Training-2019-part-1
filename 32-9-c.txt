@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            padding-left: 30px;
+        }
+
+        .none {
+            display: none;
+        }
+
+        .tbl1 td,
+        .tbl2 td,
+        .tbl3 td,
+        .tbl4 td {
+            border: 1px solid #000000;
+            width: 50px;
+            height: 50px;
+            /* margin-right: 10px; */
+            text-align: cnter;
+        }
+
+        /* td {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        } */
+
+
+        .next,
+        .prev {
+            cursor: pointer;
+        }
+
+        .dn {
+            display: none;
+        }
+
+        .a {
+            display: inline-block;
+            cursor: pointer;
+            padding: 10px;
+            border: 1px solid #000000;
+            margin: 10px;
+        }
+    </style>
+    <title>AntonVoronezh учеба по JavaScript DOM </title>
+</head>
+
+<body>
+    <h1>AntonVoronezh учеба по JavaScript DOM</h1>
+    <h2>Задачи на продвинутую работу с функциями JavaScript</h2>
+    <h2>http://theory.phphtml.net/courses/javascript/practice/9/c.html</h2>
+
+    <h3>Задача 1. Дан абзац и кнопка. Пусть по умолчанию этот абзац скрыт.
+        Сделайте так, чтобы по нажатию на кнопку абзац показался на экране.</h3>
+
+    <p class="p1 none">999999999999</p>
+    <button class="btn1">fff ffffffff</button>
+
+    <script>
+        const getP1 = document.querySelector('.p1');
+        const getBtn1 = document.querySelector('.btn1');
+
+        getBtn1.addEventListener('click', () => {
+
+            getP1.classList.remove('none');
+
+        });
+
+    </script>
+    <hr>
+
+    <h3>Задача 2.Модифицируйте предыдущую задачу так, чтобы по первому нажатию
+        абзац показывался на экране, а по второму - скрывался.</h3>
+
+    <p class="p2 none">999999999999</p>
+    <button class="btn2">fff ffffffff</button>
+
+    <script>
+        const getP2 = document.querySelector('.p2');
+        const getBtn2 = document.querySelector('.btn2');
+
+        getBtn2.addEventListener('click', () => {
+
+            getP2.classList.toggle('none');
+
+        });
+
+    </script>
+    <hr>
+
+    <h3>Задача 3. Сделайте функцию hideElem, которая параметром будет
+        принимать id элемента и скрывать этот элемент.</h3>
+
+    <p class="p3 none" id="p3">999999999999</p>
+    <button class="btn3">fff ffffffff</button>
+
+    <script>
+        const getP3 = document.querySelector('#p3');
+        const getBtn3 = document.querySelector('.btn3');
+
+        function hideElem(argElemId) {
+
+            argElemId.classList.toggle('none');
+
+        };
+
+        getBtn3.addEventListener('click', () => {
+
+            hideElem(getP3);
+
+        });
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 4. Даны абзацы. У каждого абзаца свой уникальный id.
+        Даны также инпут и кнопка. В инпут вводится id какого-либо абзаца
+        и делается клик на кнопку. С помощью функции hideElem из предыдущей
+        задачи сделайте так, чтобы абзац с таким id исчез с экрана.</h3>
+
+    <p class="p3" id="p41">111111111111111111111 - p41</p>
+    <p class="p3" id="p42">2222222222222222 - p42</p>
+    <p class="p3" id="p43">333333333333333333333 - p43</p>
+    <p class="p3" id="p44">44444444444444444 - p44</p>
+
+    <input type="text" name="" id="inp4">
+
+    <button class="btn4">fff ffffffff</button>
+
+    <script>
+        const getInp4 = document.querySelector('#inp4');
+        const getBtn4 = document.querySelector('.btn4');
+
+
+        function hideElem4(argElemId) {
+
+            const getElem = document.getElementById(argElemId);
+
+            getElem.classList.toggle('none');
+
+        };
+
+        getBtn4.addEventListener('click', () => {
+
+            hideElem4(getInp4.value);
+
+        });
+
+    </script>
+    <hr>
+
+    
+
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+</body>
+
+</html>
