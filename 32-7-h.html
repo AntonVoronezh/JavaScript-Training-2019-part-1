@@ -156,7 +156,15 @@
                 makeTr3 = document.createElement('tr');
             }
 
-  
+            let makeTd = document.createElement('td');
+
+            makeTd.innerHTML = arr[i];
+
+            makeTr3.appendChild(makeTd);
+
+            if (i === 0 || i % 3 === 0) {
+                getTbl3.appendChild(makeTr3);
+            }
         }
 
     
