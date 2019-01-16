@@ -195,7 +195,29 @@
         const getP4 = document.querySelector('.p4');
 
 
- 
+        let makeTr4;
+
+        for (let i = 0; i < arr4.length; i += 1) {
+
+
+            if (i === 0 || i % 3 === 0) {
+                makeTr4 = document.createElement('tr');
+            }
+
+            let makeTd = document.createElement('td');
+
+            makeTd.innerHTML = arr[i];
+
+            makeTr4.appendChild(makeTd);
+
+            if (i === 0 || i % 3 === 0) {
+                getTbl4.appendChild(makeTr4);
+            }
+        }
+
+        const getAllTd4 = getTbl4.querySelectorAll('td');
+
+
  
 
    
