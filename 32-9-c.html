@@ -61,6 +61,21 @@
     <h3>Задача 1. Дан абзац и кнопка. Пусть по умолчанию этот абзац скрыт.
         Сделайте так, чтобы по нажатию на кнопку абзац показался на экране.</h3>
 
+    <p class="p1 none">999999999999</p>
+    <button class="btn1">fff ffffffff</button>
+
+    <script>
+        const getP1 = document.querySelector('.p1');
+        const getBtn1 = document.querySelector('.btn1');
+
+        getBtn1.addEventListener('click', () => {
+
+            getP1.classList.remove('none');
+
+        });
+
+    </script>
+    <hr>
 
 
 
