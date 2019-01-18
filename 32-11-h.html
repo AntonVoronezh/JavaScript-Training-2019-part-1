@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            margin-right: 30px;
+            /* max-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; */
+
+        }
+
+
+        .next,
+        .prev {
+            cursor: pointer;
+        }
+
+        .dn {
+            display: none;
+        }
+
+        .a {
+            display: inline-block;
+            cursor: pointer;
+            padding: 10px;
+            border: 1px solid #000000;
+            margin: 10px;
+        }
+    </style>
+    <title>AntonVoronezh учеба по JavaScript DOM </title>
+</head>
+
+<body>
+    <h1>AntonVoronezh учеба по JavaScript DOM</h1>
+    <h2>Задачи на продвинутую работу с функциями JavaScript</h2>
+    <h2>http://theory.phphtml.net/courses/javascript/practice/11/h.html</h2>
+
+    <h3>Задача 1. Дан массив со вопросами. Покажите пользователю первый вопрос из
+        массива, а под ним сделайте ссылку, по нажатию на которую будет показываться
+        следующий вопрос из массива.</h3>
+
+    <div class="task1">
+        <p class="p1"></p>
+        <br>
+        <a href="#" class="a1">далее</a>
+    </div>
+
+
+    <script>
+
+        const arr1 = ['вопрос1', 'вопрос2', 'вопрос3', 'вопрос4', 'вопрос5'];
+
+        const task1 = document.querySelector('.task1');
+        const p1 = task1.querySelector('.p1');
+        const a1 = task1.querySelector('.a1');
+
+        p1.innerHTML = arr1[0];
+
+        let count = 0;
+
+        a1.addEventListener('click', function () {
+
+            if (count < arr1.length - 1)
+
+                count += 1;
+
+            p1.innerHTML = arr1[count];
+
+        });
+
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 2. Модифицируйте предыдущую задачу. Сделайте так, чтобы под вопросом
+        показывались инпут и кнопка. В инпут пользователь будет вводить ответ на
+        вопрос и нажимать на кнопку. Сформируйте массив ответов пользователя.</h3>
+
+
+
+    <div class="task2">
+        <p class="p2"></p>
+        <br>
+        <input type="text" class="inp2">
+        <button class="btn2">jr</button>
+        <br>
+        <a href="#" class="a2">далее</a>
+    </div>
+
+
+    <script>
+
+        const arr2 = ['вопрос1', 'вопрос2', 'вопрос3', 'вопрос4', 'вопрос5'];
+        const ans2 = [];
+
+        const task2 = document.querySelector('.task2');
+        const p2 = task2.querySelector('.p2');
+        const a2 = task2.querySelector('.a2');
+        const inp2 = task2.querySelector('.inp2');
+        const btn2 = task2.querySelector('.btn2');
+
+        p2.innerHTML = arr2[0];
+
+        let count2 = 0;
+
+        a2.addEventListener('click', function () {
+
+            if (count2 < arr2.length - 1)
+
+                count2 += 1;
+
+            p2.innerHTML = arr2[count2];
+
+            inp2.value = '';
+
+        });
+
+        btn2.addEventListener('click', function () {
+
+            ans2.push(inp2.value);
+
+        });
+
+        console.log(ans2);
+
+
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 3. Модифицируйте предыдущую задачу так, чтобы, когда пользователь
+        ответит на все вопросы, на экран вывелся список вопросов и рядом с каждым
+        вопросом - ответ, который дал на него пользователь.</h3>
+
+    <div class="task3">
+        <p class="p3"></p>
+        <p class="p32"></p>
+        <br>
+        <input type="text" class="inp3">
+        <button class="btn3">jr</button>
+        <br>
+        <a href="#" class="a3">далее</a>
+    </div>
+
+
+    <script>
+
+        const arr3 = ['вопрос1', 'вопрос2', 'вопрос3', 'вопрос4', 'вопрос5'];
+        const ans3 = [];
+
+        const task3 = document.querySelector('.task3');
+        const p3 = task3.querySelector('.p3');
+        const p32 = task3.querySelector('.p32');
+        const a3 = task3.querySelector('.a3');
+        const inp3 = task3.querySelector('.inp3');
+        const btn3 = task3.querySelector('.btn3');
+
+        p3.innerHTML = arr3[0];
+
+        let count3 = 0;
+
+        a3.addEventListener('click', function (event) {
+
+            event.preventDefault();
+
+            if (count3 <= arr3.length - 1)
+
+                count3 += 1;
+
+            p3.innerHTML = arr3[count3];
+
+            inp3.value = '';
+
+            console.log(count3, arr3.length);
+
+        });
+
+        btn3.addEventListener('click', function () {
+
+            ans3.push(inp3.value);
+
+            if (count3 === arr3.length - 1) {
+
+                let result = '';
+
+                ans3.forEach(elem => {
+
+                    console.log(elem);
+
+
+                    result = result + elem;
+
+                });
+
+                p32.innerHTML = result;
+
+                console.log(result);
+
+            }
+
+        });
+
+
+
+
+
+
+
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 4. Пусть теперь кроме массива вопросов, есть еще и массив
+        правильных ответов. Модифицируйте предыдущую задачу так, чтобы после
+        того, как пользователь ответит на все вопросы, на экран вывелся список
+        этих вопросов, рядом с каждым ответ пользователя и, если этот ответ
+        неправильный, еще и правильный ответ.</h3>
+
+
+    <div class="task4">
+        <p class="p4"></p>
+        <p class="p42"></p>
+        <br>
+        <input type="text" class="inp4">
+        <button class="btn4">jr</button>
+        <br>
+        <a href="#" class="a4">далее</a>
+    </div>
+
+
+    <script>
+
+        const arr4 = ['1+1', '2+2', '3+3', '4+4', '5+5'];
+        const rightAns = ['2', '4', '6', '8', '10'];
+        const ans4 = [];
+
+        const task4 = document.querySelector('.task4');
+        const p4 = task4.querySelector('.p4');
+        const p42 = task4.querySelector('.p42');
+        const a4 = task4.querySelector('.a4');
+        const inp4 = task4.querySelector('.inp4');
+        const btn4 = task4.querySelector('.btn4');
+
+        p4.innerHTML = arr4[0];
+
+        let count4 = 0;
+
+        a4.addEventListener('click', function (event) {
+
+            event.preventDefault();
+
+            if (count4 <= arr4.length - 1)
+
+                count4 += 1;
+
+            p4.innerHTML = arr4[count4];
+
+            inp4.value = '';
+
+        });
+
+        btn4.addEventListener('click', function () {
+
+            ans4.push(inp4.value);
+
+            if (count4 === arr4.length - 1) {
+
+                let result = '';
+
+                ans4.forEach((elem, i) => {
+
+                    if(arr4[i] === elem) {
+
+                        result = result + arr4[i] + ' -> ' + elem + '<br>';
+
+                    } else {
+
+                        result = result + arr4[i] + ' -> ' + elem + '(' + rightAns[i] + ')<br>';
+
+                    }
+
+                });
+
+                p42.innerHTML = result;
+
+                console.log(result);
+
+            }
+
+        });
+
+
+
+
+
+
+
+
+    </script>
+    <hr>
+
+
+
+
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+</body>
+
+</html>
