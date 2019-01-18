@@ -77,7 +77,24 @@
     </script>
     <hr>
 
+    <h3>Задача 2.Модифицируйте предыдущую задачу так, чтобы по первому нажатию
+        абзац показывался на экране, а по второму - скрывался.</h3>
 
+    <p class="p2 none">999999999999</p>
+    <button class="btn2">fff ffffffff</button>
+
+    <script>
+        const getP2 = document.querySelector('.p2');
+        const getBtn2 = document.querySelector('.btn2');
+
+        getBtn2.addEventListener('click', () => {
+
+            getP2.classList.toggle('none');
+
+        });
+
+    </script>
+    <hr>
 
 
 
