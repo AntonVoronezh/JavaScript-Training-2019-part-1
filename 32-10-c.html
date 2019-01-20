@@ -152,6 +152,51 @@
 
 
 
+        function func4(event) {
+
+            event.preventDefault();
+
+            const getinp41 = document.querySelector('.inp41');
+            const getinp42 = document.querySelector('.inp42');
+            const getBtn4 = document.querySelector('.btn4');
+
+            getinp41.classList.remove('dn');
+            getinp42.classList.remove('dn');
+            getBtn4.classList.remove('dn');
+
+
+            let getText = event.target.parentElement.firstChild.innerHTML;
+
+            const [name, age] = getText.split(' ');
+
+            getinp41.value = name;
+            getinp42.value = age;
+            // console.log(event.target.parentElement);
+
+            console.log(this);
+
+
+
+
+            getBtn4.addEventListener('click', function (parent) {
+
+                const newText = getinp41.value + ' ' + getinp42.value;
+
+                event.target.parentElement.firstChild.innerHTML = newText;
+
+                getinp41.classList.add('dn');
+                getinp42.classList.add('dn');
+                getBtn4.classList.add('dn');
+
+
+            });
+
+        };
+
+
+    </script>
+    <hr>
+
 
 
 
