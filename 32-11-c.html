@@ -193,6 +193,50 @@
     <hr>
 
 
+    <h3>Задача 4. Даны 5 инпутов и кнопка. Пользователь вбивает данные в инпуты
+        и нажимает на кнопку. По нажатию на кнопку сформируйте массив данных,
+        вбитых пользователем</h3>
+
+    <div class="task4">
+        <input type="text"><br>
+        <input type="text"><br>
+        <input type="text"><br>
+        <input type="text"><br>
+        <input type="text"><br>
+        <button>dddddd</button>
+    </div>
+
+
+    <script>
+
+        const task4 = document.querySelector('.task4');
+        const allInput4 = task4.querySelectorAll('input');
+        const button4 = task4.querySelector('button');
+
+        const arr4 = [];
+
+
+        button4.addEventListener('click', function () {
+
+            allInput4.forEach(elem => {
+
+                arr4.push(elem.value);
+
+            });
+
+        });
+
+        console.log(arr4);
+
+
+
+
+    </script>
+    <hr>
+
+
+
+
 
 
 
