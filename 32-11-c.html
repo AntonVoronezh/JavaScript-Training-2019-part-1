@@ -394,6 +394,64 @@
     </script>
     <hr>
 
+    <h3>Задача 9. Модифицируйте предыдущую задачу так, чтобы стало две кнопки: вперед и назад</h3>
+    <p class="p9"></p>
+    <button class="btn91">
+        -</button> <button class="btn92">->
+    </button>
+
+    <script>
+
+        const p9 = document.querySelector('.p9');
+        const btn91 = document.querySelector('.btn91');
+        const btn92 = document.querySelector('.btn92');
+
+        const arr9 = ['aaaa', 'ccccc', 'vvvvv', 'fffff', 'dddddd'];
+
+        let next9 = 0;
+
+        btn91.addEventListener('click', function () {
+
+            if (next9 <= arr9.length - 1) {
+
+                p9.innerHTML = arr9[next9];
+
+                next9 += 1;
+
+            } else {
+
+                next9 = 0;
+
+            }
+
+            console.log(next9);
+        });
+
+
+        btn92.addEventListener('click', function () {
+
+            if (next9 <= arr9.length - 1) {
+
+                p9.innerHTML = arr9[next9];
+
+                next9 -= 1;
+
+            } else {
+
+                next9 = 0;
+
+            }
+
+            console.log(next9);
+            
+
+
+        });
+
+
+
+    </script>
+    <hr>
 
 
 
