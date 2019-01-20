@@ -140,6 +140,57 @@
     </script>
     <hr>
 
+    <h3>Задача 3. Даны 5 инпутов и кнопка. Над каждым инпутом написан
+        вопрос, ответ на который должен дать пользователь. Правильный ответ
+        хранится в каждом инпуте в атрибуте data-right-answer. Сделайте так,
+        чтобы по нажатию на кнопку, все инпуты проверили правильность введенных
+        ответов и каждый неправильный ответ выделили красным цветом и рядом написали
+        правильный.</h3>
+
+
+    <div class="task3">
+        1+1 <br>
+        <input type="text" data-right-answer="2"><br>
+        1+2 <br>
+        <input type="text" data-right-answer="3"><br>
+        2+2 <br>
+        <input type="text" data-right-answer="4"><br>
+        2+3 <br>
+        <input type="text" data-right-answer="5"><br>
+        3+3 <br>
+        <input type="text" data-right-answer="6"><br>
+        <button>dddddd</button>
+    </div>
+
+
+    <script>
+
+        const task3 = document.querySelector('.task3');
+        const allInput3 = task3.querySelectorAll('input');
+        const button3 = task3.querySelector('button');
+
+        button3.addEventListener('click', function () {
+
+            allInput3.forEach(elem => {
+
+                if (elem.value === elem.dataset.rightAnswer) {
+
+                    elem.style.borderColor = 'green';
+
+                } else {
+
+                    elem.style.borderColor = 'red';
+
+                }
+
+            });
+
+        });
+
+
+
+    </script>
+    <hr>
 
 
 
