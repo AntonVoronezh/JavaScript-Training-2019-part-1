@@ -269,7 +269,54 @@
     </script>
     <hr>
 
+    <h3>Задача 6. Модифицируйте предыдущую задачу. Пусть пользователь вбивает
+        в инпут числа. Сформируйте массив этих чисел. Сделайте еще одну кнопку,
+        по нажатию на которую на экран выведется сумма введенных чисел.</h3>
+    <div class="task6">
+        <input type="text"><br>
+        <button>dddddd</button>
+        <button>dddddd</button>
+    </div>
 
+    <script>
+
+        const task6 = document.querySelector('.task6');
+        const allInput6 = task6.querySelectorAll('input');
+        const button6 = task6.querySelectorAll('button');
+
+        let arr6 = [];
+
+
+        button6[0].addEventListener('click', function () {
+
+            arr6.push(+allInput6[0].value);
+
+            allInput6[0].value = '';
+
+        });
+
+        button6[1].addEventListener('click', function () {
+
+            let sum = 0;
+
+            arr6.forEach(elem => {
+
+                sum += elem;
+
+
+            });
+
+            console.log(sum);
+
+        });
+
+
+
+
+    </script>
+    <hr>
+
+ 
 
 
     <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
