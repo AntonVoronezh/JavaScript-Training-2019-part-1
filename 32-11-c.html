@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            margin-right: 30px;
+            /* max-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; */
+
+        }
+
+
+        .next,
+        .prev {
+            cursor: pointer;
+        }
+
+        .dn {
+            display: none;
+        }
+
+        .a {
+            display: inline-block;
+            cursor: pointer;
+            padding: 10px;
+            border: 1px solid #000000;
+            margin: 10px;
+        }
+    </style>
+    <title>AntonVoronezh учеба по JavaScript DOM </title>
+</head>
+
+<body>
+    <h1>AntonVoronezh учеба по JavaScript DOM</h1>
+    <h2>Задачи на продвинутую работу с функциями JavaScript</h2>
+    <h2>http://theory.phphtml.net/courses/javascript/practice/11/c.html</h2>
+
+    <h3>Задача 1. Даны 5 инпутов и кнопка. В каждый инпут пользователь
+        должен вбить правильное число. В каждом инпуте число, которое пользователь
+        должен вбить в него, записано в атрибуте data-right-answer. Сделайте так, чтобы
+        по нажатию на кнопку инпуты проверили правильность ввода и, если число
+        было введено правильно, покрасили свою границу в зеленый цвет, а если
+        не правильно - в красный.</h3>
+
+    <div class="task1">
+        <input type="text" data-right-answer="1"><br>
+        <input type="text" data-right-answer="2"><br>
+        <input type="text" data-right-answer="3"><br>
+        <input type="text" data-right-answer="4"><br>
+        <input type="text" data-right-answer="5"><br>
+        <button>dddddd</button>
+    </div>
+
+
+    <script>
+
+        const task1 = document.querySelector('.task1');
+        const allInput1 = task1.querySelectorAll('input');
+        const button1 = task1.querySelector('button');
+
+        button1.addEventListener('click', function () {
+
+            allInput1.forEach(elem => {
+
+                if (elem.value === elem.dataset.number) {
+
+                    elem.style.borderColor = 'green';
+
+                } else {
+
+                    elem.style.borderColor = 'red';
+
+                }
+
+            });
+
+        });
+
+
+
+    </script>
+    <hr>
+
+
+
+
+
+
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+</body>
+
+</html>
