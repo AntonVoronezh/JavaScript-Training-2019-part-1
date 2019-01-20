@@ -199,6 +199,29 @@
 
 
 
+    <h3>Задача 5. Дан чекбокс и абзац. Сделайте так, что если чекбокс отмечен - абзац есть на экране,
+        а если не отмечен - то абзаца нет.</h3>
+    <p class="p5">hhhhhhhhhhh</p>
+    <input type="checkbox" class="inp5" checked>
+
+    <script>
+        const getP5 = document.querySelector('.p5');
+        const getInp5 = document.querySelector('.inp5');
+
+        getInp5.addEventListener('click', () => {
+
+            if (getInp5.checked) {
+                getP5.style.display = 'block';
+            } else {
+                getP5.style.display = 'none';
+            }
+
+        });
+
+
+    </script>
+    <hr>
+
 
 
 
