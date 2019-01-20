@@ -88,6 +88,58 @@
     </script>
     <hr>
 
+    <h3>Задача 2. Пусть теперь дан массив чисел. Модифицируйте
+        предыдущую задачу так, чтобы инпуты формировались в цикле,
+        а содержимое их атрибута data-right-answer бралось из массива.</h3>
+
+
+    <div class="task2">
+        <button>dddddd</button>
+    </div>
+
+    <script>
+        const arr = [1, 2, 3, 4, 5];
+
+        const task2 = document.querySelector('.task2');
+        const button2 = task2.querySelector('button');
+
+        arr.forEach(elem => {
+
+            const input = document.createElement('input');
+
+            input.type = 'text';
+
+            input.dataset.number = elem;
+
+            task2.appendChild(input);
+
+        });
+
+        const allInput2 = task2.querySelectorAll('input');
+
+        button2.addEventListener('click', function () {
+
+            allInput2.forEach(elem => {
+
+                if (elem.value === elem.dataset.number) {
+
+                    elem.style.borderColor = 'green';
+
+                } else {
+
+                    elem.style.borderColor = 'red';
+
+                }
+
+            });
+
+        });
+
+
+
+    </script>
+    <hr>
+
 
 
 
