@@ -236,6 +236,38 @@
 
 
 
+    <h3>Задача 5. Дан инпут и кнопка. Пользователь вбивает данные в
+        инпут и нажимает на кнопку. После каждого нажатия инпут очищается,
+        а его содержимое добавляется в массив. Таким образом мы получаем массив
+        данных, которые пользователь вбивал по очереди в наш инпут.</h3>
+
+    <div class="task5">
+        <input type="text"><br>
+        <button>dddddd</button>
+    </div>
+
+    <script>
+
+        const task5 = document.querySelector('.task5');
+        const allInput5 = task5.querySelectorAll('input');
+        const button5 = task5.querySelector('button');
+
+        let arr5 = [];
+
+
+        button5.addEventListener('click', function () {
+
+            arr5.push(allInput5[0].value);
+
+            allInput5[0].value = '';
+
+        });
+
+        console.log(arr5);
+
+
+    </script>
+    <hr>
 
 
 
