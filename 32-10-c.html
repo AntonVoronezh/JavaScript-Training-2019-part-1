@@ -104,6 +104,53 @@
     <hr>
 
 
+    <h3>Задача 4. Модифицируйте предыдущую задачу так, чтобы в конце каждой li
+        появилась ссылка 'редактировать'. По нажатию на эту ссылку под ul должны
+        появится кнопка и два инпута, в которых будет имя и возраст пользователя.
+        По нажатию на кнопку данные должны поредактироваться, а инпуты и кнопка спрятаться.</h3>
+
+    <ul class="ul4"></ul>
+    <input type="text" class="inp41 dn">
+    <input type="text" class="inp42 dn">
+    <button class="btn4 dn">hhhhhh</button>
+
+    <script>
+
+        const arr4 = [
+            { name: 'Коля', age: 30 },
+            { name: 'Вася', age: 40 },
+            { name: 'Петя', age: 50 },
+        ];
+
+        const getUl4 = document.querySelector('.ul4');
+
+        arr4.forEach(elem => {
+
+            const makeLi = document.createElement('li');
+
+            const makeSpan = document.createElement('span');
+
+            const makeA = document.createElement('a');
+
+            makeA.href = '#';
+
+            makeA.innerHTML = 'dddddddd';
+
+
+
+            makeSpan.innerHTML = elem.name + ' ' + elem.age;
+
+            makeLi.appendChild(makeSpan);
+
+            makeA.addEventListener('click', func4);
+
+            makeLi.appendChild(makeA);
+
+
+            getUl4.appendChild(makeLi);
+        });
+
+
 
 
 
