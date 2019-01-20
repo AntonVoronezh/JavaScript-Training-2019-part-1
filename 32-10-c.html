@@ -67,6 +67,41 @@
     </script>
     <hr>
 
+    <h3>Задача 2-3. Дан массив с юзерами:
+
+        var products = [
+        {name: 'Коля', age: 30},
+        {name: 'Вася', age: 40},
+        {name: 'Петя', age: 50},
+        ];
+        Выведите его элементы в виде списка ul. В каждой li будет имя и возраст юзера.</h3>
+
+    <ul class="ul2"></ul>
+
+    <script>
+
+        const arr2 = [
+            { name: 'Коля', age: 30 },
+            { name: 'Вася', age: 40 },
+            { name: 'Петя', age: 50 },
+        ];
+
+        const getUl2 = document.querySelector('.ul2');
+
+        arr2.forEach(elem => {
+
+            const makeLi = document.createElement('li');
+
+            makeLi.innerHTML = elem.name + ' - ' + elem.age;
+
+            getUl2.appendChild(makeLi);
+
+
+        });
+
+
+    </script>
+    <hr>
 
 
 
