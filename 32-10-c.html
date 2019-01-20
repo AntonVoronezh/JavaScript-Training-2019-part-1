@@ -224,6 +224,41 @@
 
 
 
+    <h3>Задача 6. Дан массив, заполненный значениями true и false. Выведите на экран
+        столько чекбоксов, сколько элементов в массиве. Причем, если значение элемента
+        равно true - пусть чекбокс будет отмечен, а если false - не отмечен.</h3>
+
+    <div class="div6"></div>
+
+    <script>
+
+        const getDiv6 = document.querySelector('.div6');
+
+        const arr6 = [true, false, true, true, false];
+
+
+
+        arr6.forEach(elem => {
+
+            const makeInp = document.createElement('input');
+
+            makeInp.type = "checkbox";
+
+            if (elem) {
+
+                makeInp.checked = true;
+
+
+            }
+
+            getDiv6.appendChild(makeInp);
+
+        });
+
+
+
+    </script>
+    <hr>
 
 
 
