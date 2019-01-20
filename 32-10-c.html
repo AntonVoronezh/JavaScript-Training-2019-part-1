@@ -263,7 +263,51 @@
 
 
 
+    <h3>Задача 7-8. Дан массив с юзерами:
 
+        var products = [
+        {name: 'Коля', active: true},
+        {name: 'Вася', active: true},
+        {name: 'Петя', active: false},
+        ];
+        Выведите его элементы в виде списка ul. Если юзер активный (поле active равно true),
+        выведите его зеленым цветом, а если не активный - красным.</h3>
+
+    <ul class="ul7"></ul>
+
+    <script>
+
+        const getUl7 = document.querySelector('.ul7');
+
+        var obj7 = [
+            { name: 'Коля', active: true },
+            { name: 'Вася', active: true },
+            { name: 'Петя', active: false },
+        ];
+
+        obj7.forEach(elem => {
+
+            const createLi = document.createElement('li');
+
+            createLi.innerHTML = elem.name;
+
+            if (elem.active) {
+
+                createLi.style.color = 'green';
+
+            } else {
+
+                createLi.style.color = 'red';
+
+            }
+
+            getUl7.appendChild(createLi);
+
+        });
+
+
+
+    </script>
 
 
 
