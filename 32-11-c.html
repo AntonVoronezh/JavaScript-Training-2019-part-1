@@ -356,6 +356,45 @@
     </script>
     <hr>
 
+    <h3>Задача 8. Модифицируйте предыдущую задачу так, чтобы, когда все элементы
+        будут показаны, показ начинался опять с первого элемента.</h3>
+
+    <p class="p8"></p>
+    <button class="btn8">ffffffff</button>
+
+
+    <script>
+
+        const p8 = document.querySelector('.p8');
+        const btn8 = document.querySelector('.btn8');
+
+        const arr8 = ['aaaa', 'ccccc', 'vvvvv', 'fffff', 'dddddd'];
+
+        let next8 = 0;
+
+        btn8.addEventListener('click', function () {
+
+            if (next8 <= arr8.length - 1) {
+
+                p8.innerHTML = arr8[next8];
+
+                next8 += 1;
+
+            } else {
+
+                next8 = 0;
+
+            }
+
+
+        });
+
+
+
+    </script>
+    <hr>
+
+
 
 
     <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
