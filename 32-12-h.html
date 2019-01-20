@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            margin-right: 30px;
+            /* max-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; */
+
+        }
+
+
+        .next,
+        .prev {
+            cursor: pointer;
+        }
+
+        .dn {
+            display: none;
+        }
+
+        .a {
+            display: inline-block;
+            cursor: pointer;
+            padding: 10px;
+            border: 1px solid #000000;
+            margin: 10px;
+        }
+
+        .ul10 {
+            display: flex;
+        }
+
+        .li10 {
+            min-width: 20px;
+            height: 20px;
+            margin-right: 2px;
+            border: 1px solid #000000;
+            display: flex;
+            justify-content: center;
+        }
+
+        .li10--active {
+            background-color: #000;
+            color: #fff;
+        }
+
+        ul {
+            list-style: none;
+        }
+    </style>
+    <title>AntonVoronezh учеба по JavaScript DOM </title>
+</head>
+
+<body>
+    <h1>AntonVoronezh учеба по JavaScript DOM</h1>
+    <h2>Задачи на продвинутую работу с функциями JavaScript</h2>
+    <h2>http://theory.phphtml.net/courses/javascript/practice/12/h.html</h2>
+
+    <h3>Задача 1. Выведите на экран текущий день, месяц, год.
+        Например, '31 января 2025 года'.</h3>
+
+    <div class="task1">
+
+    </div>
+
+
+    <script>
+        const task1 = document.querySelector('.task1');
+
+        const date = new Date();
+
+        console.log(date.getDate());
+        console.log(date.getMonth());
+        console.log(date.getFullYear());
+
+
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 2. Выведите на экран текущий день недели.</h3>
+
+
+    <script>
+
+        console.log(date.getDay());
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 3. Выведите на экран последний день текущего месяца.</h3>
+
+
+    <script>
+
+        const date3 = new Date(2018, 1, 0);
+
+        console.log(date3.getDate());
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 4. Выведите на экран ul, заполненный числами от 1 до 31.</h3>
+
+    <ul class="ul4"></ul>
+
+
+    <script>
+
+        const ul = document.querySelector('.ul4');
+
+
+        for (let i = 0; i < 31; i += 1) {
+
+            const li = document.createElement('li');
+
+            li.innerHTML = i;
+
+            ul.appendChild(li);
+
+        }
+
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 5. Выведите на экран ul, заполненный числами от 1 до последнего дня текущего месяца.</h3>
+
+    <ul class="ul5"></ul>
+
+
+    <script>
+
+        const ul5 = document.querySelector('.ul5');
+
+
+        const date51 = new Date();
+        const date52 = new Date(date51.getFullYear(), date51.getMonth() + 1, 0);
+
+        console.log(date52.getDate());
+
+
+        for (let i = 0; i <= date52.getDate(); i += 1) {
+
+            const li = document.createElement('li');
+
+            li.innerHTML = i;
+
+            ul5.appendChild(li);
+
+        }
+
+
+    </script>
+    <hr>
+
+    <h3>Задача 6. Модифицируйте предыдущую задачу так, чтобы номер текущего дня
+        выделялся зеленым цветом.</h3>
+
+    <ul class="ul6"></ul>
+
+
+    <script>
+
+        const ul6 = document.querySelector('.ul6');
+
+
+        const date61 = new Date();
+        const date62 = new Date(date61.getFullYear(), date61.getMonth() + 1, 0);
+
+
+        for (let i = 0; i <= date62.getDate(); i += 1) {
+
+            const li = document.createElement('li');
+
+            li.innerHTML = i;
+
+            if (date61.getDate() === i) {
+
+                li.style.color = 'green';
+                li.style.fontWeight = 'bold';
+
+            }
+
+            ul6.appendChild(li);
+
+        }
+
+
+    </script>
+    <hr>
+
+    <h3>Задача 7. Модифицируйте предыдущую задачу так, чтобы все выходные
+        дни выделялись красным цветом.</h3>
+
+    <ul class="ul7"></ul>
+
+
+    <script>
+
+        const ul7 = document.querySelector('.ul7');
+
+
+        const date71 = new Date();
+        const date72 = new Date(date71.getFullYear(), date71.getMonth() + 1, 0);
+
+        console.log(date71.getDay());
+
+
+
+        for (let i = 0; i <= date72.getDate(); i += 1) {
+
+            const li = document.createElement('li');
+
+            li.innerHTML = i;
+
+            if (date71.getDate() === i) {
+
+                li.style.color = 'green';
+                li.style.fontWeight = 'bold';
+
+            }
+
+            const dayNum = new Date(date71.getFullYear(), date71.getMonth(), i);
+
+
+            if (dayNum.getDay() === 6 || dayNum.getDay() === 0) {
+
+                li.style.color = 'red';
+                li.style.fontWeight = 'bold';
+
+            }
+
+            ul7.appendChild(li);
+
+        }
+
+
+    </script>
+    <hr>
+
+    <h3>Задача 8. Выведите на экран текущий месяц и год, например, 'январь 2025'.
+        Под этой датой выведите стрелочку, по нажатию на которую месяц будет
+        перематываться вперед. То есть первое нажатие выведет 'февраль 2025',
+        второе 'март 2025' и так далее. Когда месяцы текущего года закончатся,
+        необходимо увеличить год на единицу и продолжить дальше по аналогии.</h3>
+
+    <p class="p81"></p>
+    <p class="p82">---></p>
+
+
+    <script>
+
+        const p81 = document.querySelector('.p81');
+        const p82 = document.querySelector('.p82');
+
+        const arrMonths = ['январь', 'февраль', 'март', 'апрель', 'март', 'июнь', 'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь']
+
+        p81.innerHTML = arrMonths[date.getMonth()] + ' ' + date.getFullYear();
+
+        let monthNumber = date.getMonth();
+
+        let yearNumber = date.getFullYear();
+
+        p82.addEventListener('click', () => {
+
+            if (monthNumber < arrMonths.length - 1) {
+
+                monthNumber += 1;
+
+                p81.innerHTML = arrMonths[monthNumber] + ' ' + yearNumber;
+
+            } else {
+
+                yearNumber += 1;
+
+                monthNumber = 0;
+
+                p81.innerHTML = arrMonths[monthNumber] + ' ' + yearNumber;
+
+            }
+
+        });
+
+
+
+    </script>
+    <hr>
+
+
+
+    <h3>Задача 9. Модифицируйте предыдущую задачу так, чтобы появилась также стрелка,
+        по нажатию на которую можно будет проматывать месяцы назад.</h3>
+
+
+    <p class="p91"></p>
+    <p class="p92">
+        <---</p> <p class="p93">--->
+    </p>
+
+
+    <script>
+
+        const p91 = document.querySelector('.p91');
+        const pLeft = document.querySelector('.p92');
+        const pRight = document.querySelector('.p93');
+
+        const arrMonths9 = ['январь', 'февраль', 'март', 'апрель', 'март', 'июнь', 'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь']
+
+        p91.innerHTML = arrMonths9[date.getMonth()] + ' ' + date.getFullYear();
+
+        let monthNumber9 = date.getMonth();
+
+        let yearNumber9 = date.getFullYear();
+
+        pRight.addEventListener('click', () => {
+
+            if (monthNumber9 < arrMonths9.length - 1) {
+
+                monthNumber9 += 1;
+
+                p91.innerHTML = arrMonths9[monthNumber9] + ' ' + yearNumber9;
+
+            } else {
+
+                yearNumber9 += 1;
+
+                monthNumber9 = 0;
+
+                p91.innerHTML = arrMonths9[monthNumber9] + ' ' + yearNumber9;
+
+            }
+
+        });
+
+
+
+        pLeft.addEventListener('click', () => {
+
+            console.log(monthNumber9);
+
+
+            if (monthNumber9 > 0) {
+
+
+                monthNumber9 -= 1;
+
+
+                p91.innerHTML = arrMonths9[monthNumber9] + ' ' + yearNumber9;
+
+            } else {
+
+                yearNumber9 -= 1;
+
+                monthNumber9 = arrMonths9.length - 1;
+
+                p91.innerHTML = arrMonths9[monthNumber9] + ' ' + yearNumber9;
+
+            }
+
+        });
+
+    </script>
+    <hr>
+
+
+
+    <h3>Задача 10. Реализуйте календарик следующего вида: показаны дни
+        текущего месяца (в ряд), слева стрелка 'предыдущий месяц',
+        справа ссылка 'следующий месяц'. Сверху показан год и месяц,
+        который мы смотрим. Если мы смотрим текущий месяц текущего года -
+        текущий день должен быть как-то выделен.</h3>
+
+
+
+    <p class="p101"></p>
+    <p class="p102">
+        <---</p> <p class="p103">--->
+    </p>
+
+    <ul class="ul10"></ul>
+
+
+    <script>
+
+        const ul10 = document.querySelector('.ul10');
+        const p10 = document.querySelector('.p101');
+        const pLeft10 = document.querySelector('.p102');
+        const pRight10 = document.querySelector('.p103');
+
+        const arrMonths10 = ['январь', 'февраль', 'март', 'апрель', 'март', 'июнь', 'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь']
+
+        p10.innerHTML = arrMonths10[date.getMonth()] + ' ' + date.getFullYear();
+
+        let monthNumber10 = date.getMonth();
+
+        let yearNumber10 = date.getFullYear();
+
+
+        const date101 = new Date();
+        const date102 = new Date(date101.getFullYear(), date101.getMonth() + 1, 0);
+
+
+        for (let i = 0; i <= date102.getDate(); i += 1) {
+
+            const li = document.createElement('li');
+
+            li.innerHTML = i;
+            li.classList.add('li10');
+
+            if (date101.getDate() === i) {
+
+                li.classList.add('li10--active');
+
+            }
+
+
+
+            ul10.appendChild(li);
+
+        }
+
+
+        pRight10.addEventListener('click', () => {
+
+
+
+            if (monthNumber10 < arrMonths10.length - 1) {
+
+                monthNumber10 += 1;
+
+
+            } else {
+
+                yearNumber10 += 1;
+
+                monthNumber10 = 0;
+
+            }
+
+            let target = new Date(yearNumber10, monthNumber10 + 1, 0);
+
+            p10.innerHTML = arrMonths10[target.getMonth()] + ' ' + target.getFullYear();
+
+
+
+            makeDays(target.getDate());
+
+        });
+
+
+
+        pLeft10.addEventListener('click', () => {
+
+
+            if (monthNumber10 > 0) {
+
+                monthNumber10 -= 1;
+
+            } else {
+
+                yearNumber10 -= 1;
+
+                monthNumber10 = arrMonths10.length - 1;
+
+            }
+
+
+            let target = new Date(yearNumber10, monthNumber10 + 1, 0);
+
+            p10.innerHTML = arrMonths10[target.getMonth()] + ' ' + target.getFullYear();
+
+            makeDays(target.getDate());
+
+        });
+
+
+        function makeDays(argCount) {
+
+            ul10.innerHTML = '';
+
+            for (let i = 0; i <= argCount; i += 1) {
+
+                const li = document.createElement('li');
+
+                li.innerHTML = i;
+
+                li.classList.add('li10');
+
+
+                ul10.appendChild(li);
+
+            }
+
+
+        };
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 11. Определите день недели первого дня текущего месяца.</h3>
+
+    
+    
+
+
+
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+</body>
+
+</html>

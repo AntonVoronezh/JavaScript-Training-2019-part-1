@@ -279,7 +279,7 @@
 
                 ans4.forEach((elem, i) => {
 
-                    if(arr4[i] === elem) {
+                    if (arr4[i] === elem) {
 
                         result = result + arr4[i] + ' -> ' + elem + '<br>';
 
@@ -308,6 +308,282 @@
 
     </script>
     <hr>
+
+    <h3>Задача 5. Пусть теперь массив вопросов и массив правильных ответов будут храниться в таком виде:
+
+        this.state = {
+        test: [
+        {
+        question: 'Вопрос 1',
+        right: 'Правильный ответ 1',
+        },
+        {
+        question: 'Вопрос 2',
+        right: 'Правильный ответ 2',
+        },
+        {
+        question: 'Вопрос 3',
+        right: 'Правильный ответ 3',
+        },
+        ]
+        };
+        Переделайте предыдущую задачу, чтобы она работала с этим массивом.</h3>
+
+    <div class="task5">
+        <p class="p5"></p>
+        <p class="p52"></p>
+        <br>
+        <input type="text" class="inp5">
+        <button class="btn5">jr</button>
+        <br>
+        <a href="#" class="a5">далее</a>
+    </div>
+
+    <script>
+
+        state = {
+            test: [
+                {
+                    question: '1+1',
+                    right: '2',
+                },
+                {
+                    question: '2+2',
+                    right: '4',
+                },
+                {
+                    question: '3+3',
+                    right: '6',
+                },
+                {
+                    question: '4+4',
+                    right: '8',
+                },
+                {
+                    question: '5+5',
+                    right: '10',
+                }
+            ]
+        };
+
+
+
+        const task5 = document.querySelector('.task5');
+        const p5 = task5.querySelector('.p5');
+        const p52 = task5.querySelector('.p52');
+        const a5 = task5.querySelector('.a5');
+        const inp5 = task5.querySelector('.inp5');
+        const btn5 = task5.querySelector('.btn5');
+
+        console.log(state.test);
+
+
+        p5.innerHTML = state.test[0].question;
+
+        let count5 = 0;
+
+        a5.addEventListener('click', function (event) {
+
+            event.preventDefault();
+
+            if (count5 <= state.test.length - 1)
+
+                count5 += 1;
+
+            p5.innerHTML = state.test[count5].question;
+
+            inp5.value = '';
+
+        });
+
+
+        btn5.addEventListener('click', function () {
+
+            state.test[count5].ans = inp5.value;
+
+            if (count5 === state.test.length - 1) {
+
+                let result = '';
+
+                state.test.forEach((elem, i) => {
+
+                    if (state.test[i].question === state.test[i].ans) {
+
+                        result = result + state.test[i].question + ' -> ' + elem + '<br>';
+
+                    } else {
+
+                        result = result + state.test[i].question + ' -> ' + elem + '(' + state.test[i].right + ')<br>';
+
+                    }
+
+                });
+
+                p52.innerHTML = result;
+
+                console.log(result);
+
+            }
+
+        });
+
+
+
+
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 6. Даны 3 радиокнопочки. Дан также абзац. Сделайте так, чтобы в этот
+        абзац всегда выводилось value отмеченной кнопочки.</h3>
+
+    <input type="radio" name="r6" class="inp6" value="1">
+    <input type="radio" name="r6" class="inp6" value="2">
+    <input type="radio" name="r6" class="inp6" value="3">
+    <p class="p6"></p>
+
+    <script>
+
+        const allR6 = document.querySelectorAll('.inp6');
+        const p6 = document.querySelector('.p6');
+
+        allR6.forEach(elem => {
+
+            elem.addEventListener('click', function () {
+
+                p6.innerHTML = this.value;
+
+            });
+
+        });
+
+    </script>
+
+    <hr>
+
+    <h3>Задача 7. Дан массив. Модифицируйте предыдущую задачу так, чтобы
+        радиокнопочки сформировались в цикле, при этом их value должны
+        браться из массива.</h3>
+
+    <p class="p7"></p>
+    <p class="p72"></p>
+
+    <script>
+
+        const arr7 = [1, 2, 3, 4, 5];
+
+        const p7 = document.querySelector('.p7');
+        const p72 = document.querySelector('.p72');
+
+        arr7.forEach(elem => {
+
+            const radio = document.createElement('input');
+
+            radio.type = "radio";
+            radio.name = "r7";
+            radio.value = elem;
+            radio.classList.add('pR7');
+
+            p7.appendChild(radio);
+
+        });
+
+
+
+        const allR7 = document.querySelectorAll('.pR7');
+
+
+        allR7.forEach(elem => {
+
+            elem.addEventListener('click', function () {
+
+                p72.innerHTML = this.value;
+
+            });
+
+        });
+
+
+    </script>
+
+    <hr>
+
+    <h3>Задача 8. Дано 5 групп, состоящих из 3 радиокнопочек и абзаца.
+        В каждой группе может быть отмечена только одна радиокнопочка.
+        Сделайте так, чтобы содержимое атрибута value каждой отмеченной
+        радиокнопочки выводилось в соответствующий абзац. Модифицируйте предыдущую задачу так, чтобы
+        группы радиокнопочек формировались из следующего массива:</h3>
+
+
+    <p class="p8"></p>
+
+    <script>
+        const arr8 = [
+            ['1-1', '1-2', '1-3'],
+            ['2-1', '2-2', '2-3'],
+            ['3-1', '3-2', '3-3'],
+            ['4-1', '4-2', '4-3'],
+            ['5-1', '5-2', '5-3']
+        ]
+
+        const p8 = document.querySelector('.p8');
+
+
+        arr8.forEach((elem, i) => {
+            // console.log(elem);
+
+            elem.forEach(item => {
+
+                const radio = document.createElement('input');
+
+                radio.type = "radio";
+                radio.name = "r8" + i;
+                radio.value = item;
+                radio.classList.add('pR8');
+
+                p8.appendChild(radio);
+
+
+            });
+
+            const p = document.createElement('p');
+
+            p.classList.add("r8" + i);
+            // p.classList.add('p8p');
+
+            const br = document.createElement('br');
+
+            p8.appendChild(p);
+
+            p8.appendChild(br);
+
+
+        });
+
+
+
+        p8.addEventListener('click', function (event) {
+
+            console.log(event.target.name);
+
+            const num = event.target;
+            
+            const elem = document.querySelector(`.${num.name}`);
+
+            // console.log(elem);
+            
+            elem.innerHTML = num.value;
+
+        });
+
+
+
+    </script>
+
+
+
+
 
 
 

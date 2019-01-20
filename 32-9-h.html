@@ -86,71 +86,10 @@
     <hr>
 
 
-    <h3>Задача 2.  Модифицируйте предыдущую задачу так, чтобы красным 
-        цветом всегда был выделен только один абзац. При нажатии на другой абзац 
-        именно он должен становится красным, а предыдущий должен возвращаться черному цвету.</h3>
-
-    <p class="p2">1</p>
-    <p class="p2">2</p>
-    <p class="p2">3</p>
-    <p class="p2">4</p>
-
-    <script>
-        
-        const getAllP2 = document.querySelectorAll('.p2');
-
-        getAllP2.forEach(elem => {
-
-            elem.addEventListener('click', function() {
-
-                getAllP2.forEach(item => {
-
-                    item.classList.remove('active');  
-
-                });
-
-                elem.classList.add('active');
-
-            });
-
-        });
 
 
-    </script>
-    <hr>
 
 
-    <h3>Задача 3.  Реализуйте вкладки. Нажимая на каждую вкладку мы будем 
-        видеть ниже текст, соответствующий этой вкладке.</h3>
-    
-        <p class="p2">1</p>
-        <p class="p2">2</p>
-        <p class="p2">3</p>
-        <p class="p2">4</p>
-    
-        <script>
-            
-            const getAllP2 = document.querySelectorAll('.p2');
-    
-            getAllP2.forEach(elem => {
-    
-                elem.addEventListener('click', function() {
-    
-                    getAllP2.forEach(item => {
-    
-                        item.classList.remove('active');  
-    
-                    });
-    
-                    elem.classList.add('active');
-    
-                });
-    
-            });
-    
-    
-        </script>
-        <hr>
 
 
     <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
