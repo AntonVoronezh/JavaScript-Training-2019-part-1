@@ -316,7 +316,46 @@
     </script>
     <hr>
 
- 
+    <h3>Задача 7. Дан массив со строками. Покажите пользователю первый элемент массива,
+        а под ним сделайте ссылку, по нажатию на которую будет показываться следующий
+        элемент массива. Как только все элементы закончатся - покажите сообщение об этом,
+        а также заблокируйте кнопку.</h3>
+
+    <p class="p7"></p>
+    <button class="btn7">ffffffff</button>
+
+
+    <script>
+
+        const p7 = document.querySelector('.p7');
+        const btn7 = document.querySelector('.btn7');
+
+        const arr7 = ['aaaa', 'ccccc', 'vvvvv', 'fffff', 'dddddd'];
+
+        let next7 = 0;
+
+        btn7.addEventListener('click', function () {
+
+            if (next7 < arr7.length) {
+
+                p7.innerHTML = arr7[next7];
+
+                next7 += 1;
+
+            } else {
+
+                btn7.disabled = true;
+
+            }
+
+
+        });
+
+
+
+    </script>
+    <hr>
+
 
 
     <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
