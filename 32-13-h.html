@@ -130,6 +130,51 @@
         </script>
         <hr>
 
+        <h3>Задача 3.Модифицируйте предыдущую задачу так, чтобы найденные элементы
+            массива выводились на экран в виде списка ul.</h3>
+
+        <ul class="ul3"></ul>
+
+        <script>
+            const ul = document.querySelector('.ul3');
+
+            countries.forEach(elem => {
+
+                const lowerElem = getLowerStr(elem).trim();
+
+                const arrFromElem = makeArrFromStr(lowerElem);
+
+                if (arrFromElem.indexOf(str) !== -1) {
+
+                    // console.log(lowerElem);
+
+                    const elemWidthStr = makeElem('li', lowerElem);
+
+                    // ul.appendChild(elemWidthStr);
+
+                }
+
+            });
+
+
+            function makeElem(argTag, argInner) {
+
+                const elem = document.createElement(argTag);
+
+                elem.innerHTML = argInner;
+
+                return elem;
+
+            };
+
+
+
+
+        </script>
+        <hr>
+
+
+
 
 
 
