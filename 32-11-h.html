@@ -435,6 +435,32 @@
     <hr>
 
 
+    <h3>Задача 6. Даны 3 радиокнопочки. Дан также абзац. Сделайте так, чтобы в этот
+        абзац всегда выводилось value отмеченной кнопочки.</h3>
+
+    <input type="radio" name="r6" class="inp6" value="1">
+    <input type="radio" name="r6" class="inp6" value="2">
+    <input type="radio" name="r6" class="inp6" value="3">
+    <p class="p6"></p>
+
+    <script>
+
+        const allR6 = document.querySelectorAll('.inp6');
+        const p6 = document.querySelector('.p6');
+
+        allR6.forEach(elem => {
+
+            elem.addEventListener('click', function () {
+
+                p6.innerHTML = this.value;
+
+            });
+
+        });
+
+    </script>
+
+    <hr>
 
 
 
