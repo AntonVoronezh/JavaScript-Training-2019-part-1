@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            margin-right: 30px;
+            /* max-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; */
+
+        }
+
+
+        .next,
+        .prev {
+            cursor: pointer;
+        }
+
+        .dn {
+            display: none;
+        }
+
+        .a {
+            display: inline-block;
+            cursor: pointer;
+            padding: 10px;
+            border: 1px solid #000000;
+            margin: 10px;
+        }
+    </style>
+    <title>AntonVoronezh учеба по JavaScript DOM </title>
+</head>
+
+<body>
+    <h1>AntonVoronezh учеба по JavaScript DOM</h1>
+    <h2>Задачи на продвинутую работу с функциями JavaScript</h2>
+    <h2>http://theory.phphtml.net/courses/javascript/practice/11/h.html</h2>
+
+    <h3>Задача 1. Дан массив со вопросами. Покажите пользователю первый вопрос из
+        массива, а под ним сделайте ссылку, по нажатию на которую будет показываться
+        следующий вопрос из массива.</h3>
+
+    <div class="task1">
+        <p class="p1"></p>
+        <br>
+        <a href="#" class="a1">далее</a>
+    </div>
+
+
+    <script>
+
+        const arr1 = ['вопрос1', 'вопрос2', 'вопрос3', 'вопрос4', 'вопрос5'];
+
+        const task1 = document.querySelector('.task1');
+        const p1 = task1.querySelector('.p1');
+        const a1 = task1.querySelector('.a1');
+
+        p1.innerHTML = arr1[0];
+
+        let count = 0;
+
+        a1.addEventListener('click', function () {
+
+            if (count < arr1.length - 1)
+
+                count += 1;
+
+            p1.innerHTML = arr1[count];
+
+        });
+
+
+    </script>
+    <hr>
+
+
+
+
+
+
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+</body>
+
+</html>

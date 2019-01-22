@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            margin-right: 30px;
+            /* max-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; */
+
+        }
+    </style>
+    <title>AntonVoronezh учеба по JavaScript DOM </title>
+</head>
+
+<body>
+    <h1>AntonVoronezh учеба по JavaScript DOM</h1>
+    <h2>Задачи на некоторые продвинутые функции JavaScript</h2>
+
+    <h2>На forEach</h2>
+
+    <h3>Задача 1. Дан массив с числами. Создайте новый массив, состоящий из квадратов этих чисел</h3>
+
+    <script>
+        const arr1 = [1, 2, 3, 4, 5];
+        const arr1New = [];
+
+        arr1.forEach(elem => {
+
+            arr1New.push(elem * elem);
+
+        });
+
+        console.log(arr1New);
+
+
+    </script>
+    <hr>
+
+    <h3>Задача 2. Дан массив с числами. Найдите сумму этих чисел</h3>
+
+    <script>
+        const arr2 = [1, 2, 3, 4, 5];
+        let result = 0;
+
+        arr2.forEach(elem => {
+
+            result += elem;
+
+        });
+
+        console.log(result);
+
+
+    </script>
+    <hr>
+
+    <h2>На map</h2>
+
+    <h3>Задача 3. Дан массив с числами. Сделайте из него массив, состоящий из квадратов этих чисел</h3>
+
+    <script>
+        const arr3 = [1, 2, 3, 4, 5];
+
+        const newArr3 = arr3.map(elem => elem * elem);
+
+        console.log(newArr3);
+
+
+    </script>
+    <hr>
+
+    <h2>На every, some</h2>
+
+    <h3>Задача 4. Дан массив с числами. Проверьте то, что все элементы в массиве больше нуля.</h3>
+
+    <script>
+        const arr4 = [1, 2, 3, 4, 5];
+
+        const newArr4 = arr3.every(elem => elem > 0);
+
+        console.log(newArr4);
+
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 5. Дан массив с числами. Проверьте то, что в нем есть отрицательные элементы.</h3>
+
+    <script>
+        const arr5 = [1, 2, -3, 4, 5];
+
+        const newArr5 = arr5.some(elem => elem < 0);
+
+        console.log(newArr5);
+
+
+    </script>
+    <hr>
+
+    <h2>На filter</h2>
+
+    <h3>Задача 6. Дан массив с числами. Оставьте в нем только отрицательные числа.</h3>
+
+    <script>
+        const arr6 = [1, -2, 3, 4, -5];
+
+        const newArr6 = arr6.filter(elem => elem < 0);
+
+        console.log(newArr6);
+
+
+    </script>
+    <hr>
+
+
+
+    <h3>Задача 7. Дан массив с числами. Оставьте в нем только четные числа</h3>
+
+    <script>
+        const arr7 = [1, 2, 3, 4, 5];
+
+        const newArr7 = arr7.filter(elem => elem % 2 === 0);
+
+        console.log(newArr7);
+
+
+    </script>
+    <hr>
+
+    <h3>Задача 8. Дан массив со строками. Оставьте в нем только те строки,
+        длина которых больше 5-ти символов.</h3>
+
+    <script>
+        const arr8 = ['df', 'ggg', 'hhjk', 'ffghjg', 'dsfdfd', 't', 'cxgvfgdfg'];
+
+        const newArr8 = arr8.filter(elem => elem.length > 5);
+
+        console.log(newArr8);
+
+
+    </script>
+    <hr>
+
+    <h3>Задача 9. Дан массив, в нем могут быть обычные элементы и подмассивы,
+        например [1, 2, [3, 4], 5, [6, 7]]. Оставьте в нем только подмассивы.</h3>
+
+    <script>
+        const arr9 = [1, 2, [3, 4], 5, [6, 7]];
+
+        const newArr9 = arr9.filter(elem => typeof elem === 'object');
+
+        console.log(newArr9);
+
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 10. Дан массив с числами. Посчитайте количество отрицательных чисел в этом массиве. </h3>
+
+    <script>
+        const arr10 = [1, -2, 3, 4, 5, -8, -4];
+
+        const newArr10 = arr10.filter(elem => elem < 0);
+
+        console.log(newArr10.length);
+
+
+    </script>
+    <hr>
+
+
+
+
+    <h2>На reduce, reduceRight</h2>
+
+    <h3>Задача 11. Дан массив с числами. Найдите сумму этих чисел.</h3>
+
+    <script>
+        const arr11 = [1, 2, 3, 4, 5];
+
+        const newArr11 = arr11.reduce((elem, sum) => elem + sum);
+
+        console.log(newArr11);
+
+
+    </script>
+    <hr>
+
+    <h3>Задача 12. Дан массив с числами. Найдите сумму первых N элементов до первого нуля.
+        Пример: [1, 2, 3, 0, 4, 5, 6] - суммируем первые 3 элемента, так как дальше
+        стоит элемент с числом 0</h3>
+
+    <script>
+        const arr12 = [1, 2, 3, 0, 4, 5, 6];
+
+        let flag = false;
+
+        const newArr12 = arr12.reduce((sum, elem) => {
+
+            if (elem === 0) {
+
+                flag = true;
+
+            }
+
+            if (flag === false) {
+
+                return elem + sum;
+
+            } else {
+
+                return sum;
+
+            }
+
+        });
+
+        console.log(newArr12);
+
+
+    </script>
+    <hr>
+
+    <h3>Задача 13. Дан массив с числами. Найдите сумму последних N элементов
+        до первого нуля с конца. Пример: [1, 2, 3, 0, 4, 5, 6] - суммируем
+        последние 3 элемента, так как дальше стоит элемент с числом 0.</h3>
+
+
+    <script>
+        const arr13 = [1, 2, 3, 0, 4, 5, 6];
+
+        let flag2 = false;
+
+        const newArr13 = arr13.reduceRight((sum, elem) => {
+
+            if (elem === 0) {
+
+                flag2 = true;
+
+            }
+
+            if (flag2 === false) {
+
+                return elem + sum;
+
+            } else {
+
+                return sum;
+
+            }
+
+        });
+
+        console.log(newArr13);
+
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 14. Дан массив с числами. Узнайте сколько элементов с начала
+        массива надо сложить, чтобы в сумме получилось больше 10-ти</h3>
+
+
+
+
+    <script>
+        const arr14 = [1, 2, 3, 0, 4, 5, 6];
+
+        console.log('------');
+
+
+        let out = 0;
+
+        const newArr14 = arr14.reduce((sum, elem, i) => {
+
+            const res = elem + sum;
+
+            if (res > 5) {
+
+                out = i;
+
+            }
+
+            console.log(i, res);
+
+
+            return res;
+
+        });
+
+        console.log(out);
+
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 15. Дан массив с числами. Узнайте сколько элементов с конца
+        массива надо сложить, чтобы в сумме получилось больше 10-ти.</h3>
+
+
+
+
+    <script>
+        const arr15 = [1, 2, 3, 0, 4, 5, 6];
+
+        console.log('------');
+
+
+        let out2 = 0;
+
+        const newArr15 = arr15.reduceRight((sum, elem, i) => {
+
+            const res = elem + sum;
+
+            if (res > 10) {
+
+                out2 = i;
+
+            }
+
+            console.log(i, res);
+
+
+            return res;
+
+        });
+
+        console.log(out2);
+
+
+    </script>
+    <hr>
+
+
+
+    <h3>Задача 16. Дан массив с числами. Оставьте в нем только положительные числа.
+        Затем извлеките квадратный корень и этих чисел.</h3>
+
+
+
+
+    <script>
+        const arr16 = [1, -2, 3, 0, 4, -5, 6];
+
+        const newArr16 = arr16.filter(elem => elem > 0);
+
+        const newArr162 = newArr16.map(elem => Math.sqrt(elem));
+
+        console.log(newArr162);
+
+
+    </script>
+
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+</body>
+
+</html>

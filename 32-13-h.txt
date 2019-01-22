@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            margin-right: 30px;
+            /* max-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; */
+
+        }
+
+
+        .next,
+        .prev {
+            cursor: pointer;
+        }
+
+        .dn {
+            display: none;
+        }
+
+        .a {
+            display: inline-block;
+            cursor: pointer;
+            padding: 10px;
+            border: 1px solid #000000;
+            margin: 10px;
+        }
+
+        .ul10 {
+            display: flex;
+        }
+
+        .li10 {
+            min-width: 20px;
+            height: 20px;
+            margin-right: 2px;
+            border: 1px solid #000000;
+            display: flex;
+            justify-content: center;
+        }
+
+        .li10--active {
+            background-color: #000;
+            color: #fff;
+        }
+
+        ul {
+            list-style: none;
+        }
+    </style>
+    <title>AntonVoronezh учеба по JavaScript DOM </title>
+</head>
+
+<body>
+    <h1>AntonVoronezh учеба по JavaScript DOM</h1>
+    <h2>Задачи на продвинутую работу с функциями JavaScript</h2>
+    <h2>http://theory.phphtml.net/courses/javascript/practice/13/h.html</h2>
+
+    <h3>Задача 1. Дан массив. Дана переменная, в которой хранится какая-то строка.
+        Найдите в массиве все элементы, текст которых начинается на эту строку и
+        выведите эти элементы на экран.</h3>
+
+    <div class="task1">
+
+    </div>
+
+
+    <script>
+        const countries = ["Австралия", "Австрия", "Азербайджан", "Албания", "Алжир", "Ангола", "Андорра", "Антигуа и Барбуда", "Антильские острова", "Аргентина", "Армения", "Афганистан", "Багамские острова", "Бангладеш", "Барбадос", "Бахрейн", "Белиз", "Белоруссия", "Бельгия", "Бенин", "Болгария", "Боливия", "Босния и Герцеговина", "Ботсвана", "Бразилия", "Буркина-Фасо", "Бурунди", "Бутан", "Вануату", "Ватикан", "Великобритания", "Венгрия", "Венесуэла", "Вьетнам", "Габон", "Гаити", "Гайана", "Гамбия", "Гана", "Гватемала", "Гвинея", "Гвинея-Бисау", "Германия", "Голландия", "Гондурас", "Гонконг", "Гренада", "Гренландия", "Греция", "Грузия", "Гуам", "Дания", "Демократическая Республика Конго", "Джибути", "Доминиканская республика", "Египет", "Замбия", "Западная Сахара", "Зимбабве", "Израиль", "Индия", "Индонезия", "Иордания", "Ирак", "Иран", "Ирландия", "Исландия", "Испания", "Италия", "Йемен", "Кабо-Верде", "Казахстан", "Камбоджа", "Камерун", "Канада", "Катар", "Кения", "Кипр", "Киргизия", "Кирибати", "Китай", "КНДР", "Колумбия", "Коморские острова", "Коста-Рика", "Кот-д'Ивуар", "Куба", "Кувейт", "Лаос", "Латвия", "Лесото", "Либерия", "Ливан", "Ливия", "Литва", "Лихтенштейн", "Люксембург", "Маврикий", "Мавритания", "Мадагаскар", "Македония", "Малави", "Малайзия", "Мали", "Мальдивы", "Мальта", "Марокко", "Мартиника", "Мексика", "Микронезия", "Мозамбик", "Молдавия", "Монако", "Монголия", "Мьянма", "Намибия", "Непал", "Нигер", "Нигерия", "Никарагуа", "Новая Зеландия", "Новая Каледония", "Норвегия", "ОАЭ", "Оман", "Пакистан", "Палестина", "Панама", "Папуа-Новая Гвинея", "Парагвай", "Перу", "Польша", "Португалия", "Пуэрто-Рико", "Республика Конго", "Республика Корея", "Россия", "Руанда", "Румыния", "Сальвадор", "Сан-Марино", "Сан-Томе и Принсипи", "Саудовская Аравия", "Свазиленд", "Сенегал", "Сент-Китс и Невис", "Сент-Люсия", "Сербия", "Сингапур", "Сирия", "Словакия", "Словения", "Соломоновы острова", "Сомали", "Судан", "Суринам", "США", "Сьерра-Леоне", "Таджикистан", "Таиланд", "Тайвань", "Танзания", "Того", "Тонга", "Тринидад и Тобаго", "Тунис", "Туркменистан", "Турция", "Уганда", "Узбекистан", "Украина", "Уругвай", "Фиджи", "Филиппины", "Финляндия", "Франция", "Французская Гвиана", "Хорватия", "Центральноафриканская Республика", "Чад", "Черногория", "Чехия", "Чили", "Швейцария", "Швеция", "Шри-Ланка", "Эквадор", "Экваториальная Гвинея", "Эритрея", "Эстония", "Эфиопия", "ЮАР", "Ямайка", "Япония"];
+        const str = 'б';
+
+        countries.forEach(elem => {
+
+            const lowerElem = getLowerStr(elem).trim();
+            const arrFromElem = makeArrFromStr(lowerElem);
+            // str.indexOf(searchValue[, fromIndex])
+
+            if (arrFromElem.indexOf(str) === 0) {
+
+                // console.log(lowerElem);
+
+            }
+
+        });
+
+
+        function makeArrFromStr(argStr) {
+
+            return argStr.split('');
+
+        };
+
+        function getLowerStr(argStr) {
+
+            return argStr.toLowerCase();
+
+        };
+
+
+    </script>
+    <hr>
+
+
+
+    <h3>Задача 2. Модифицируйте предыдущую задачу так, чтобы искались элементы,
+        которые вообще содержат эту строку, не обязательно в начале своего текста,
+        а в любом месте./h3>
+
+        <script>
+            countries.forEach(elem => {
+
+                const lowerElem = getLowerStr(elem).trim();
+                const arrFromElem = makeArrFromStr(lowerElem);
+
+                if (arrFromElem.indexOf(str) !== -1) {
+
+                    // console.log(lowerElem);
+
+                }
+
+            });
+        </script>
+        <hr>
+
+        <h3>Задача 3.Модифицируйте предыдущую задачу так, чтобы найденные элементы
+            массива выводились на экран в виде списка ul.</h3>
+
+        <ul class="ul3"></ul>
+
+        <script>
+            const ul = document.querySelector('.ul3');
+
+            countries.forEach(elem => {
+
+                const lowerElem = getLowerStr(elem).trim();
+
+                const arrFromElem = makeArrFromStr(lowerElem);
+
+                if (arrFromElem.indexOf(str) !== -1) {
+
+                    // console.log(lowerElem);
+
+                    const elemWidthStr = makeElem('li', lowerElem);
+
+                    // ul.appendChild(elemWidthStr);
+
+                }
+
+            });
+
+
+            function makeElem(argTag, argInner) {
+
+                const elem = document.createElement(argTag);
+
+                elem.innerHTML = argInner;
+
+                return elem;
+
+            };
+
+
+
+
+        </script>
+        <hr>
+
+
+        <h3>Задача 4. Модифицируйте предыдущую задачу так, чтобы текст, который мы ищем,
+            вбивался пользователем в какой-нибудь инпут.</h3>
+
+        <input type="text" class="inp4">
+
+
+        <ul class="ul4"></ul>
+
+        <script>
+            const ul4 = document.querySelector('.ul4');
+            const inp4 = document.querySelector('.inp4');
+
+            inp4.addEventListener('keyup', addition)
+
+            function addition() {
+
+                console.log(typeof this.value);
+
+                clearElem(ul4);
+
+                countries.forEach(elem => {
+
+                    const lowerElem = getLowerStr(elem).trim();
+
+                    const arrFromElem = makeArrFromStr(lowerElem);
+                    // console.log(this.value);
+
+                    if (lowerElem.indexOf(this.value) === 0) {
+
+                        // console.log(lowerElem);
+                        // console.log(this.value);
+
+                        const elemWidthStr = makeElem('li', lowerElem);
+
+                        ul4.appendChild(elemWidthStr);
+
+                    }
+
+                });
+
+
+            };
+
+
+        function clearElem(argElem) {
+
+            argElem.innerHTML = '';
+
+        };
+
+        </script>
+        <hr>
+
+
+
+
+        <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+</body>
+
+</html>
