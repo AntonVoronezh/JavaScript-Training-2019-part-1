@@ -462,6 +462,53 @@
 
     <hr>
 
+    <h3>Задача 7. Дан массив. Модифицируйте предыдущую задачу так, чтобы
+        радиокнопочки сформировались в цикле, при этом их value должны
+        браться из массива.</h3>
+
+    <p class="p7"></p>
+    <p class="p72"></p>
+
+    <script>
+
+        const arr7 = [1, 2, 3, 4, 5];
+
+        const p7 = document.querySelector('.p7');
+        const p72 = document.querySelector('.p72');
+
+        arr7.forEach(elem => {
+
+            const radio = document.createElement('input');
+
+            radio.type = "radio";
+            radio.name = "r7";
+            radio.value = elem;
+            radio.classList.add('pR7');
+
+            p7.appendChild(radio);
+
+        });
+
+
+
+        const allR7 = document.querySelectorAll('.pR7');
+
+
+        allR7.forEach(elem => {
+
+            elem.addEventListener('click', function () {
+
+                p72.innerHTML = this.value;
+
+            });
+
+        });
+
+
+    </script>
+
+    <hr>
+
 
 
 
