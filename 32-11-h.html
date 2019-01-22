@@ -137,6 +137,93 @@
     <hr>
 
 
+    <h3>Задача 3. Модифицируйте предыдущую задачу так, чтобы, когда пользователь
+        ответит на все вопросы, на экран вывелся список вопросов и рядом с каждым
+        вопросом - ответ, который дал на него пользователь.</h3>
+
+    <div class="task3">
+        <p class="p3"></p>
+        <p class="p32"></p>
+        <br>
+        <input type="text" class="inp3">
+        <button class="btn3">jr</button>
+        <br>
+        <a href="#" class="a3">далее</a>
+    </div>
+
+
+    <script>
+
+        const arr3 = ['вопрос1', 'вопрос2', 'вопрос3', 'вопрос4', 'вопрос5'];
+        const ans3 = [];
+
+        const task3 = document.querySelector('.task3');
+        const p3 = task3.querySelector('.p3');
+        const p32 = task3.querySelector('.p32');
+        const a3 = task3.querySelector('.a3');
+        const inp3 = task3.querySelector('.inp3');
+        const btn3 = task3.querySelector('.btn3');
+
+        p3.innerHTML = arr3[0];
+
+        let count3 = 0;
+
+        a3.addEventListener('click', function (event) {
+
+            event.preventDefault();
+
+            if (count3 <= arr3.length - 1)
+
+                count3 += 1;
+
+            p3.innerHTML = arr3[count3];
+
+            inp3.value = '';
+
+            console.log(count3, arr3.length);
+
+        });
+
+        btn3.addEventListener('click', function () {
+
+            ans3.push(inp3.value);
+
+            if (count3 === arr3.length - 1) {
+
+                let result = '';
+
+                ans3.forEach(elem => {
+
+                    console.log(elem);
+
+
+                    result = result + elem;
+
+                });
+
+                p32.innerHTML = result;
+
+                console.log(result);
+
+            }
+
+        });
+
+
+
+
+
+
+
+
+    </script>
+    <hr>
+
+
+
+
+
+
 
 
 
