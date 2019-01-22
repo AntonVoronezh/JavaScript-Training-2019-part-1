@@ -110,6 +110,26 @@
 
 
 
+    <h3>Задача 2. Модифицируйте предыдущую задачу так, чтобы искались элементы,
+        которые вообще содержат эту строку, не обязательно в начале своего текста,
+        а в любом месте./h3>
+
+        <script>
+            countries.forEach(elem => {
+
+                const lowerElem = getLowerStr(elem).trim();
+                const arrFromElem = makeArrFromStr(lowerElem);
+
+                if (arrFromElem.indexOf(str) !== -1) {
+
+                    // console.log(lowerElem);
+
+                }
+
+            });
+        </script>
+        <hr>
+
 
 
 
