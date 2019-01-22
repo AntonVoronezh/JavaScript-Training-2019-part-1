@@ -174,7 +174,58 @@
         <hr>
 
 
+        <h3>Задача 4. Модифицируйте предыдущую задачу так, чтобы текст, который мы ищем,
+            вбивался пользователем в какой-нибудь инпут.</h3>
 
+        <input type="text" class="inp4">
+
+
+        <ul class="ul4"></ul>
+
+        <script>
+            const ul4 = document.querySelector('.ul4');
+            const inp4 = document.querySelector('.inp4');
+
+            inp4.addEventListener('keyup', addition)
+
+            function addition() {
+
+                console.log(typeof this.value);
+
+                clearElem(ul4);
+
+                countries.forEach(elem => {
+
+                    const lowerElem = getLowerStr(elem).trim();
+
+                    const arrFromElem = makeArrFromStr(lowerElem);
+                    // console.log(this.value);
+
+                    if (lowerElem.indexOf(this.value) === 0) {
+
+                        // console.log(lowerElem);
+                        // console.log(this.value);
+
+                        const elemWidthStr = makeElem('li', lowerElem);
+
+                        ul4.appendChild(elemWidthStr);
+
+                    }
+
+                });
+
+
+            };
+
+
+        function clearElem(argElem) {
+
+            argElem.innerHTML = '';
+
+        };
+
+        </script>
+        <hr>
 
 
 
