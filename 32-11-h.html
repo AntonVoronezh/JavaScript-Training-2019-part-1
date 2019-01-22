@@ -509,6 +509,77 @@
 
     <hr>
 
+    <h3>Задача 8. Дано 5 групп, состоящих из 3 радиокнопочек и абзаца.
+        В каждой группе может быть отмечена только одна радиокнопочка.
+        Сделайте так, чтобы содержимое атрибута value каждой отмеченной
+        радиокнопочки выводилось в соответствующий абзац. Модифицируйте предыдущую задачу так, чтобы
+        группы радиокнопочек формировались из следующего массива:</h3>
+
+
+    <p class="p8"></p>
+
+    <script>
+        const arr8 = [
+            ['1-1', '1-2', '1-3'],
+            ['2-1', '2-2', '2-3'],
+            ['3-1', '3-2', '3-3'],
+            ['4-1', '4-2', '4-3'],
+            ['5-1', '5-2', '5-3']
+        ]
+
+        const p8 = document.querySelector('.p8');
+
+
+        arr8.forEach((elem, i) => {
+            // console.log(elem);
+
+            elem.forEach(item => {
+
+                const radio = document.createElement('input');
+
+                radio.type = "radio";
+                radio.name = "r8" + i;
+                radio.value = item;
+                radio.classList.add('pR8');
+
+                p8.appendChild(radio);
+
+
+            });
+
+            const p = document.createElement('p');
+
+            p.classList.add("r8" + i);
+            // p.classList.add('p8p');
+
+            const br = document.createElement('br');
+
+            p8.appendChild(p);
+
+            p8.appendChild(br);
+
+
+        });
+
+
+
+        p8.addEventListener('click', function (event) {
+
+            console.log(event.target.name);
+
+            const num = event.target;
+            
+            const elem = document.querySelector(`.${num.name}`);
+
+            // console.log(elem);
+            
+            elem.innerHTML = num.value;
+
+        });
+
+
+
+    </script>
 
 
 
