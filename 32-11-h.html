@@ -220,7 +220,96 @@
     <hr>
 
 
+    <h3>Задача 4. Пусть теперь кроме массива вопросов, есть еще и массив
+        правильных ответов. Модифицируйте предыдущую задачу так, чтобы после
+        того, как пользователь ответит на все вопросы, на экран вывелся список
+        этих вопросов, рядом с каждым ответ пользователя и, если этот ответ
+        неправильный, еще и правильный ответ.</h3>
 
+
+    <div class="task4">
+        <p class="p4"></p>
+        <p class="p42"></p>
+        <br>
+        <input type="text" class="inp4">
+        <button class="btn4">jr</button>
+        <br>
+        <a href="#" class="a4">далее</a>
+    </div>
+
+
+    <script>
+
+        const arr4 = ['1+1', '2+2', '3+3', '4+4', '5+5'];
+        const rightAns = ['2', '4', '6', '8', '10'];
+        const ans4 = [];
+
+        const task4 = document.querySelector('.task4');
+        const p4 = task4.querySelector('.p4');
+        const p42 = task4.querySelector('.p42');
+        const a4 = task4.querySelector('.a4');
+        const inp4 = task4.querySelector('.inp4');
+        const btn4 = task4.querySelector('.btn4');
+
+        p4.innerHTML = arr4[0];
+
+        let count4 = 0;
+
+        a4.addEventListener('click', function (event) {
+
+            event.preventDefault();
+
+            if (count4 <= arr4.length - 1)
+
+                count4 += 1;
+
+            p4.innerHTML = arr4[count4];
+
+            inp4.value = '';
+
+        });
+
+        btn4.addEventListener('click', function () {
+
+            ans4.push(inp4.value);
+
+            if (count4 === arr4.length - 1) {
+
+                let result = '';
+
+                ans4.forEach((elem, i) => {
+
+                    if (arr4[i] === elem) {
+
+                        result = result + arr4[i] + ' -> ' + elem + '<br>';
+
+                    } else {
+
+                        result = result + arr4[i] + ' -> ' + elem + '(' + rightAns[i] + ')<br>';
+
+                    }
+
+                });
+
+                p42.innerHTML = result;
+
+                console.log(result);
+
+            }
+
+        });
+
+
+
+
+
+
+
+
+    </script>
+    <hr>
+
+  
 
 
 
