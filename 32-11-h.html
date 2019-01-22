@@ -80,6 +80,65 @@
     <hr>
 
 
+    <h3>Задача 2. Модифицируйте предыдущую задачу. Сделайте так, чтобы под вопросом
+        показывались инпут и кнопка. В инпут пользователь будет вводить ответ на
+        вопрос и нажимать на кнопку. Сформируйте массив ответов пользователя.</h3>
+
+
+
+    <div class="task2">
+        <p class="p2"></p>
+        <br>
+        <input type="text" class="inp2">
+        <button class="btn2">jr</button>
+        <br>
+        <a href="#" class="a2">далее</a>
+    </div>
+
+
+    <script>
+
+        const arr2 = ['вопрос1', 'вопрос2', 'вопрос3', 'вопрос4', 'вопрос5'];
+        const ans2 = [];
+
+        const task2 = document.querySelector('.task2');
+        const p2 = task2.querySelector('.p2');
+        const a2 = task2.querySelector('.a2');
+        const inp2 = task2.querySelector('.inp2');
+        const btn2 = task2.querySelector('.btn2');
+
+        p2.innerHTML = arr2[0];
+
+        let count2 = 0;
+
+        a2.addEventListener('click', function () {
+
+            if (count2 < arr2.length - 1)
+
+                count2 += 1;
+
+            p2.innerHTML = arr2[count2];
+
+            inp2.value = '';
+
+        });
+
+        btn2.addEventListener('click', function () {
+
+            ans2.push(inp2.value);
+
+        });
+
+        console.log(ans2);
+
+
+
+    </script>
+    <hr>
+
+
+
+
 
 
 
