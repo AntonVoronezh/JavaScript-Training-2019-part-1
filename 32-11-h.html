@@ -309,7 +309,132 @@
     </script>
     <hr>
 
-  
+    <h3>Задача 5. Пусть теперь массив вопросов и массив правильных ответов будут храниться в таком виде:
+
+        this.state = {
+        test: [
+        {
+        question: 'Вопрос 1',
+        right: 'Правильный ответ 1',
+        },
+        {
+        question: 'Вопрос 2',
+        right: 'Правильный ответ 2',
+        },
+        {
+        question: 'Вопрос 3',
+        right: 'Правильный ответ 3',
+        },
+        ]
+        };
+        Переделайте предыдущую задачу, чтобы она работала с этим массивом.</h3>
+
+    <div class="task5">
+        <p class="p5"></p>
+        <p class="p52"></p>
+        <br>
+        <input type="text" class="inp5">
+        <button class="btn5">jr</button>
+        <br>
+        <a href="#" class="a5">далее</a>
+    </div>
+
+    <script>
+
+        state = {
+            test: [
+                {
+                    question: '1+1',
+                    right: '2',
+                },
+                {
+                    question: '2+2',
+                    right: '4',
+                },
+                {
+                    question: '3+3',
+                    right: '6',
+                },
+                {
+                    question: '4+4',
+                    right: '8',
+                },
+                {
+                    question: '5+5',
+                    right: '10',
+                }
+            ]
+        };
+
+
+
+        const task5 = document.querySelector('.task5');
+        const p5 = task5.querySelector('.p5');
+        const p52 = task5.querySelector('.p52');
+        const a5 = task5.querySelector('.a5');
+        const inp5 = task5.querySelector('.inp5');
+        const btn5 = task5.querySelector('.btn5');
+
+        console.log(state.test);
+
+
+        p5.innerHTML = state.test[0].question;
+
+        let count5 = 0;
+
+        a5.addEventListener('click', function (event) {
+
+            event.preventDefault();
+
+            if (count5 <= state.test.length - 1)
+
+                count5 += 1;
+
+            p5.innerHTML = state.test[count5].question;
+
+            inp5.value = '';
+
+        });
+
+
+        btn5.addEventListener('click', function () {
+
+            state.test[count5].ans = inp5.value;
+
+            if (count5 === state.test.length - 1) {
+
+                let result = '';
+
+                state.test.forEach((elem, i) => {
+
+                    if (state.test[i].question === state.test[i].ans) {
+
+                        result = result + state.test[i].question + ' -> ' + elem + '<br>';
+
+                    } else {
+
+                        result = result + state.test[i].question + ' -> ' + elem + '(' + state.test[i].right + ')<br>';
+
+                    }
+
+                });
+
+                p52.innerHTML = result;
+
+                console.log(result);
+
+            }
+
+        });
+
+
+
+
+
+    </script>
+    <hr>
+
+
 
 
 
