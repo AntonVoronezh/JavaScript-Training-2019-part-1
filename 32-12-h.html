@@ -251,7 +251,55 @@
     </script>
     <hr>
 
- 
+    <h3>Задача 8. Выведите на экран текущий месяц и год, например, 'январь 2025'.
+        Под этой датой выведите стрелочку, по нажатию на которую месяц будет
+        перематываться вперед. То есть первое нажатие выведет 'февраль 2025',
+        второе 'март 2025' и так далее. Когда месяцы текущего года закончатся,
+        необходимо увеличить год на единицу и продолжить дальше по аналогии.</h3>
+
+    <p class="p81"></p>
+    <p class="p82">---></p>
+
+
+    <script>
+
+        const p81 = document.querySelector('.p81');
+        const p82 = document.querySelector('.p82');
+
+        const arrMonths = ['январь', 'февраль', 'март', 'апрель', 'март', 'июнь', 'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь']
+
+        p81.innerHTML = arrMonths[date.getMonth()] + ' ' + date.getFullYear();
+
+        let monthNumber = date.getMonth();
+
+        let yearNumber = date.getFullYear();
+
+        p82.addEventListener('click', () => {
+
+            if (monthNumber < arrMonths.length - 1) {
+
+                monthNumber += 1;
+
+                p81.innerHTML = arrMonths[monthNumber] + ' ' + yearNumber;
+
+            } else {
+
+                yearNumber += 1;
+
+                monthNumber = 0;
+
+                p81.innerHTML = arrMonths[monthNumber] + ' ' + yearNumber;
+
+            }
+
+        });
+
+
+
+    </script>
+    <hr>
+
+
 
 
 
