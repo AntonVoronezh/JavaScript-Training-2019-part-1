@@ -166,6 +166,42 @@
     </script>
     <hr>
 
+    <h3>Задача 6. Модифицируйте предыдущую задачу так, чтобы номер текущего дня
+        выделялся зеленым цветом.</h3>
+
+    <ul class="ul6"></ul>
+
+
+    <script>
+
+        const ul6 = document.querySelector('.ul6');
+
+
+        const date61 = new Date();
+        const date62 = new Date(date61.getFullYear(), date61.getMonth() + 1, 0);
+
+
+        for (let i = 0; i <= date62.getDate(); i += 1) {
+
+            const li = document.createElement('li');
+
+            li.innerHTML = i;
+
+            if (date61.getDate() === i) {
+
+                li.style.color = 'green';
+                li.style.fontWeight = 'bold';
+
+            }
+
+            ul6.appendChild(li);
+
+        }
+
+
+    </script>
+    <hr>
+
 
 
 
