@@ -136,6 +136,38 @@
     <hr>
 
 
+    <h3>Задача 5. Выведите на экран ul, заполненный числами от 1 до последнего дня текущего месяца.</h3>
+
+    <ul class="ul5"></ul>
+
+
+    <script>
+
+        const ul5 = document.querySelector('.ul5');
+
+
+        const date51 = new Date();
+        const date52 = new Date(date51.getFullYear(), date51.getMonth() + 1, 0);
+
+        console.log(date52.getDate());
+
+
+        for (let i = 0; i <= date52.getDate(); i += 1) {
+
+            const li = document.createElement('li');
+
+            li.innerHTML = i;
+
+            ul5.appendChild(li);
+
+        }
+
+
+    </script>
+    <hr>
+
+
+
 
 
 
