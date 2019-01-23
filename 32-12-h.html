@@ -377,6 +377,138 @@
 
 
 
+    <h3>Задача 10. Реализуйте календарик следующего вида: показаны дни
+        текущего месяца (в ряд), слева стрелка 'предыдущий месяц',
+        справа ссылка 'следующий месяц'. Сверху показан год и месяц,
+        который мы смотрим. Если мы смотрим текущий месяц текущего года -
+        текущий день должен быть как-то выделен.</h3>
+
+
+
+    <p class="p101"></p>
+    <p class="p102">
+        <---</p> <p class="p103">--->
+    </p>
+
+    <ul class="ul10"></ul>
+
+
+    <script>
+
+        const ul10 = document.querySelector('.ul10');
+        const p10 = document.querySelector('.p101');
+        const pLeft10 = document.querySelector('.p102');
+        const pRight10 = document.querySelector('.p103');
+
+        const arrMonths10 = ['январь', 'февраль', 'март', 'апрель', 'март', 'июнь', 'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь']
+
+        p10.innerHTML = arrMonths10[date.getMonth()] + ' ' + date.getFullYear();
+
+        let monthNumber10 = date.getMonth();
+
+        let yearNumber10 = date.getFullYear();
+
+
+        const date101 = new Date();
+        const date102 = new Date(date101.getFullYear(), date101.getMonth() + 1, 0);
+
+
+        for (let i = 0; i <= date102.getDate(); i += 1) {
+
+            const li = document.createElement('li');
+
+            li.innerHTML = i;
+            li.classList.add('li10');
+
+            if (date101.getDate() === i) {
+
+                li.classList.add('li10--active');
+
+            }
+
+
+
+            ul10.appendChild(li);
+
+        }
+
+
+        pRight10.addEventListener('click', () => {
+
+
+
+            if (monthNumber10 < arrMonths10.length - 1) {
+
+                monthNumber10 += 1;
+
+
+            } else {
+
+                yearNumber10 += 1;
+
+                monthNumber10 = 0;
+
+            }
+
+            let target = new Date(yearNumber10, monthNumber10 + 1, 0);
+
+            p10.innerHTML = arrMonths10[target.getMonth()] + ' ' + target.getFullYear();
+
+
+
+            makeDays(target.getDate());
+
+        });
+
+
+
+        pLeft10.addEventListener('click', () => {
+
+
+            if (monthNumber10 > 0) {
+
+                monthNumber10 -= 1;
+
+            } else {
+
+                yearNumber10 -= 1;
+
+                monthNumber10 = arrMonths10.length - 1;
+
+            }
+
+
+            let target = new Date(yearNumber10, monthNumber10 + 1, 0);
+
+            p10.innerHTML = arrMonths10[target.getMonth()] + ' ' + target.getFullYear();
+
+            makeDays(target.getDate());
+
+        });
+
+
+        function makeDays(argCount) {
+
+            ul10.innerHTML = '';
+
+            for (let i = 0; i <= argCount; i += 1) {
+
+                const li = document.createElement('li');
+
+                li.innerHTML = i;
+
+                li.classList.add('li10');
+
+
+                ul10.appendChild(li);
+
+            }
+
+
+        };
+
+    </script>
+    <hr>
 
 
 
