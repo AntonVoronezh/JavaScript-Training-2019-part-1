@@ -202,6 +202,56 @@
     </script>
     <hr>
 
+    <h3>Задача 7. Модифицируйте предыдущую задачу так, чтобы все выходные
+        дни выделялись красным цветом.</h3>
+
+    <ul class="ul7"></ul>
+
+
+    <script>
+
+        const ul7 = document.querySelector('.ul7');
+
+
+        const date71 = new Date();
+        const date72 = new Date(date71.getFullYear(), date71.getMonth() + 1, 0);
+
+        console.log(date71.getDay());
+
+
+
+        for (let i = 0; i <= date72.getDate(); i += 1) {
+
+            const li = document.createElement('li');
+
+            li.innerHTML = i;
+
+            if (date71.getDate() === i) {
+
+                li.style.color = 'green';
+                li.style.fontWeight = 'bold';
+
+            }
+
+            const dayNum = new Date(date71.getFullYear(), date71.getMonth(), i);
+
+
+            if (dayNum.getDay() === 6 || dayNum.getDay() === 0) {
+
+                li.style.color = 'red';
+                li.style.fontWeight = 'bold';
+
+            }
+
+            ul7.appendChild(li);
+
+        }
+
+
+    </script>
+    <hr>
+
+ 
 
 
 
