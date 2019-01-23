@@ -301,6 +301,83 @@
 
 
 
+    <h3>Задача 9. Модифицируйте предыдущую задачу так, чтобы появилась также стрелка,
+        по нажатию на которую можно будет проматывать месяцы назад.</h3>
+
+
+    <p class="p91"></p>
+    <p class="p92">
+        <---</p> <p class="p93">--->
+    </p>
+
+
+    <script>
+
+        const p91 = document.querySelector('.p91');
+        const pLeft = document.querySelector('.p92');
+        const pRight = document.querySelector('.p93');
+
+        const arrMonths9 = ['январь', 'февраль', 'март', 'апрель', 'март', 'июнь', 'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь']
+
+        p91.innerHTML = arrMonths9[date.getMonth()] + ' ' + date.getFullYear();
+
+        let monthNumber9 = date.getMonth();
+
+        let yearNumber9 = date.getFullYear();
+
+        pRight.addEventListener('click', () => {
+
+            if (monthNumber9 < arrMonths9.length - 1) {
+
+                monthNumber9 += 1;
+
+                p91.innerHTML = arrMonths9[monthNumber9] + ' ' + yearNumber9;
+
+            } else {
+
+                yearNumber9 += 1;
+
+                monthNumber9 = 0;
+
+                p91.innerHTML = arrMonths9[monthNumber9] + ' ' + yearNumber9;
+
+            }
+
+        });
+
+
+
+        pLeft.addEventListener('click', () => {
+
+            console.log(monthNumber9);
+
+
+            if (monthNumber9 > 0) {
+
+
+                monthNumber9 -= 1;
+
+
+                p91.innerHTML = arrMonths9[monthNumber9] + ' ' + yearNumber9;
+
+            } else {
+
+                yearNumber9 -= 1;
+
+                monthNumber9 = arrMonths9.length - 1;
+
+                p91.innerHTML = arrMonths9[monthNumber9] + ' ' + yearNumber9;
+
+            }
+
+        });
+
+    </script>
+    <hr>
+
+
+
+
 
 
 
