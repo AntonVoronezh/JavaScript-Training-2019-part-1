@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            margin-right: 30px;
+            /* max-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; */
+
+        }
+
+
+        .next,
+        .prev {
+            cursor: pointer;
+        }
+
+        .dn {
+            display: none;
+        }
+
+        .a {
+            display: inline-block;
+            cursor: pointer;
+            padding: 10px;
+            border: 1px solid #000000;
+            margin: 10px;
+        }
+
+        .ul10 {
+            display: flex;
+        }
+
+        .li10 {
+            min-width: 20px;
+            height: 20px;
+            margin-right: 2px;
+            border: 1px solid #000000;
+            display: flex;
+            justify-content: center;
+        }
+
+        .li10--active {
+            background-color: #000;
+            color: #fff;
+        }
+
+        ul {
+            list-style: none;
+        }
+    </style>
+    <title>AntonVoronezh учеба по JavaScript DOM </title>
+</head>
+
+<body>
+    <h1>AntonVoronezh учеба по JavaScript DOM</h1>
+    <h2>Задачи на продвинутую работу с функциями JavaScript</h2>
+    <h2>http://theory.phphtml.net/courses/javascript/practice/12/h.html</h2>
+
+    <h3>Задача 1. Выведите на экран текущий день, месяц, год.
+        Например, '31 января 2025 года'.</h3>
+
+    <div class="task1">
+
+    </div>
+
+
+    <script>
+        const task1 = document.querySelector('.task1');
+
+        const date = new Date();
+
+        console.log(date.getDate());
+        console.log(date.getMonth());
+        console.log(date.getFullYear());
+
+
+
+    </script>
+    <hr>
+
+
+
+   
+  
+
+
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+</body>
+
+</html>
