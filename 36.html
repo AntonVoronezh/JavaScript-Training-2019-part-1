@@ -344,6 +344,23 @@
 
 
 
+    <h3>Задача 16. Дан массив с числами. Оставьте в нем только положительные числа.
+        Затем извлеките квадратный корень и этих чисел.</h3>
+
+
+
+
+    <script>
+        const arr16 = [1, -2, 3, 0, 4, -5, 6];
+
+        const newArr16 = arr16.filter(elem => elem > 0);
+
+        const newArr162 = newArr16.map(elem => Math.sqrt(elem));
+
+        console.log(newArr162);
+
+
+    </script>
 
     <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
 </body>
