@@ -195,6 +195,40 @@
     </script>
     <hr>
 
+    <h3>Задача 12. Дан массив с числами. Найдите сумму первых N элементов до первого нуля.
+        Пример: [1, 2, 3, 0, 4, 5, 6] - суммируем первые 3 элемента, так как дальше
+        стоит элемент с числом 0</h3>
+
+    <script>
+        const arr12 = [1, 2, 3, 0, 4, 5, 6];
+
+        let flag = false;
+
+        const newArr12 = arr12.reduce((sum, elem) => {
+
+            if (elem === 0) {
+
+                flag = true;
+
+            }
+
+            if (flag === false) {
+
+                return elem + sum;
+
+            } else {
+
+                return sum;
+
+            }
+
+        });
+
+        console.log(newArr12);
+
+
+    </script>
+    <hr>
 
 
  
