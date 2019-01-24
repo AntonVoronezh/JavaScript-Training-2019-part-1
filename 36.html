@@ -305,6 +305,44 @@
     <hr>
 
 
+    <h3>Задача 15. Дан массив с числами. Узнайте сколько элементов с конца
+        массива надо сложить, чтобы в сумме получилось больше 10-ти.</h3>
+
+
+
+
+    <script>
+        const arr15 = [1, 2, 3, 0, 4, 5, 6];
+
+        console.log('------');
+
+
+        let out2 = 0;
+
+        const newArr15 = arr15.reduceRight((sum, elem, i) => {
+
+            const res = elem + sum;
+
+            if (res > 10) {
+
+                out2 = i;
+
+            }
+
+            console.log(i, res);
+
+
+            return res;
+
+        });
+
+        console.log(out2);
+
+
+    </script>
+    <hr>
+
+
 
 
     <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
