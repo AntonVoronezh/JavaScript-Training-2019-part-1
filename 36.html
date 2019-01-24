@@ -267,7 +267,44 @@
     <hr>
 
 
- 
+    <h3>Задача 14. Дан массив с числами. Узнайте сколько элементов с начала
+        массива надо сложить, чтобы в сумме получилось больше 10-ти</h3>
+
+
+
+
+    <script>
+        const arr14 = [1, 2, 3, 0, 4, 5, 6];
+
+        console.log('------');
+
+
+        let out = 0;
+
+        const newArr14 = arr14.reduce((sum, elem, i) => {
+
+            const res = elem + sum;
+
+            if (res > 5) {
+
+                out = i;
+
+            }
+
+            console.log(i, res);
+
+
+            return res;
+
+        });
+
+        console.log(out);
+
+
+    </script>
+    <hr>
+
+
 
 
     <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
