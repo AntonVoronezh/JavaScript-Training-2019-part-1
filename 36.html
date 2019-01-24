@@ -230,6 +230,42 @@
     </script>
     <hr>
 
+    <h3>Задача 13. Дан массив с числами. Найдите сумму последних N элементов
+        до первого нуля с конца. Пример: [1, 2, 3, 0, 4, 5, 6] - суммируем
+        последние 3 элемента, так как дальше стоит элемент с числом 0.</h3>
+
+
+    <script>
+        const arr13 = [1, 2, 3, 0, 4, 5, 6];
+
+        let flag2 = false;
+
+        const newArr13 = arr13.reduceRight((sum, elem) => {
+
+            if (elem === 0) {
+
+                flag2 = true;
+
+            }
+
+            if (flag2 === false) {
+
+                return elem + sum;
+
+            } else {
+
+                return sum;
+
+            }
+
+        });
+
+        console.log(newArr13);
+
+
+    </script>
+    <hr>
+
 
  
 
