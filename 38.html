@@ -266,6 +266,60 @@
     <hr>
 
 
+    <h3>Задача 13. Даны абзацы с числами. Сделайте так, чтобы по нажатию на абзац начинал
+        тикать таймер, который каждую секунду будет увеличивать на единицу число в этом абзаце.
+        По нажатию на другой абзац должно происходить то же самое - он тоже начнет тикать</h3>
+
+    <p class="p131">0</p>
+    <p class="p132">1</p>
+    <p class="p133">2</p>
+
+    <script>
+
+        const elem131 = document.querySelector('.p131');
+        const elem132 = document.querySelector('.p132');
+        const elem133 = document.querySelector('.p133');
+
+        function func13(argElem) {
+
+            setInterval(() => {
+
+                argElem.innerHTML = +argElem.innerHTML + 1;
+
+            }, 1000);
+
+
+
+        };
+
+
+        elem131.addEventListener('click', function () {
+
+            func13(elem131);
+
+
+        });
+
+        elem132.addEventListener('click', function () {
+
+            func13(elem132);
+
+
+        });
+
+
+        elem133.addEventListener('click', function () {
+
+            func13(elem133);
+
+
+        });
+
+
+
+
+    </script>
+    <hr>
 
 
 
