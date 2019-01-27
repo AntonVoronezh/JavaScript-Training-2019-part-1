@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            margin-right: 30px;
+            /* max-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; */
+
+        }
+    </style>
+    <title>AntonVoronezh учеба по JavaScript DOM </title>
+</head>
+
+<body>
+    <h1>AntonVoronezh учеба по JavaScript DOM</h1>
+    <h2>Задачи на некоторые продвинутые функции JavaScript</h2>
+
+    <h3>Задача 6. Реализуем с помощью Es6 функцию, сливающую переданные массивы в двухмерный массив</h3>
+
+    <script>
+
+        function func6(...arrs) {
+
+            return arrs;
+
+        };
+
+        console.log(func6([1, 2, 3], [4, 5, 6]));
+
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 7. Найдем пересечение любого количества массивов на ES6</h3>
+
+    <script>
+
+        function func7(...arrs) {
+
+            const result = [];
+
+            // const firstArr = arrs.shift();
+
+            const [firstArr, ...rest] = arrs;
+
+
+            for (let elem of firstArr) {
+
+                if (inArrays(rest, elem)) {
+
+                    result.push(elem);
+
+                }
+
+                // console.log(elem);
+
+
+            };
+
+            return result;
+
+        };
+
+
+        function inArrays(argArrs, argElem) {
+
+            for (elem of argArrs) {
+
+                if (!inArray(elem, argElem)) {
+
+                    return false;
+
+                }
+
+            };
+
+            return true;
+
+        };
+
+
+        function inArray(argArr, argElem) {
+
+            return argArr.find(elem => elem === argElem);
+
+        };
+
+
+
+        console.log(7, func7([1, 2, 3], [4, 2, 5, 6, 1], [2, 3, 5, 1]));
+
+
+    </script>
+    <hr>
+
+
+
+    <h3>Задача 6. Реализуем с помощью Es6 функцию, сливающую произвольное количество массивов в один</h3>
+
+
+    <script>
+
+        function func6(...argArrs) {
+
+            return [].concat(...argArrs);
+
+        };
+
+
+        console.log(func6([1, 2], [3, 4], [5, 6]));
+
+    </script>
+    <hr>
+
+
+
+    <h3>Задача 9. Избегаем дублирования ключей объекта средствами ES6</h3>
+
+    <script>
+
+        const width = '100px';
+        const height = '200px';
+        const border = '1px';
+
+        const obj9 = { width, height, border };
+
+
+        console.log(obj9);
+
+    </script>
+    <hr>
+
+
+
+    <h3>Задача 11. Деструктуризация для опций функции уменьшаем количество кода с помощью ES6</h3>
+
+    <script>
+
+        function func11(argTag, argParent, argParams) {
+
+            const { w = 100, h = 200, b = '1px solid red' } = argParams;
+
+
+            const elem = document.createElement(argTag);
+
+            elem.style.width = `${w}px`;
+            elem.style.height = `${h}px`;
+            elem.style.border = `${b}`;
+
+            argParent.appendChild(elem);
+
+        };
+
+
+        func11('div', document.body, {});
+        func11('div', document.body, { w: 200, h: 300, b: '2px solid blue' });
+
+    </script>
+    <hr>
+
+    <h3>Задача 12. Получение копии массива средствами ES6</h3>
+
+    <script>
+
+        const arr12 = [1, 2, 3, 4];
+
+        const [...clone12] = arr12;
+
+        clone12.reverse();
+
+
+        console.log(arr12);
+        console.log(clone12);
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 14. Функция, возвращающая несколько значений изящное использование на ES6</h3>
+
+    <script>
+
+        function func14() {
+
+            const date = new Date();
+
+            return {
+
+                y: date.getFullYear(),
+
+                m: date.getMonth()
+
+            };
+
+        };
+
+
+        let { y: year14, m: month14 } = func14();
+
+
+        // console.log(func14());
+        console.log(year14, month14);
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 20. Применение деструктуризации для свойств DOM элементов
+        при переборе циклом for of ES6</h3>
+
+    <p id="p1">1</p>
+    <p id="p2">2</p>
+    <p id="p3">3</p>
+
+    <script>
+
+        const allP = document.querySelectorAll('p');
+
+        for(let {id, innerHTML: text} of allP) {
+
+            console.log(id, text);            
+
+        }
+
+    </script>
+    <hr>
+
+
+
+
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+</body>
+
+</html>
