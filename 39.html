@@ -175,7 +175,36 @@
 
 
 
-  
+    <h3>Задача 8. Дана коллекция Set с некоторыми числовыми значениями.
+        Найдите сумму этих значений.</h3>
+
+
+    <script>
+        const arr8 = [1, 2, 3, 4, 5];
+        const set8 = new Set();
+
+        arr8.forEach(elem => {
+
+            set8.add(elem);
+
+        });
+
+        let sum = 0;
+
+        for (let elem of set8) {
+
+            sum += elem;
+
+        }
+
+        console.log(sum);
+
+
+
+    </script>
+    <hr>
+
+
 
 
 
