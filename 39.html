@@ -206,6 +206,41 @@
 
 
 
+    <h3>Задача 9. Дан инпут и кнопка. Пользователь вводит в инпут число и
+        жмет на кнопку и делает так произвольное количество раз.
+        Сделайте так, чтобы каждый раз под инпутом в абзац через запятую
+        выводился список всех введенных пользователем чисел, но без дублей.</h3>
+
+    <input type="text" class="inp9">
+    <button class="btn9">ddddd</button>
+
+    <script>
+        const arr9 = [];
+        const set9 = new Set();
+
+        const inp9 = document.querySelector('.inp9');
+        const btn9 = document.querySelector('.btn9');
+
+
+        btn9.addEventListener('click', () => {
+
+            set9.add(inp9.value);
+
+            arr9.push(inp9.value);
+
+
+            console.log(arr9);
+            console.log(set9);
+
+        });
+
+
+
+
+
+
+    </script>
+    <hr>
 
 
 
