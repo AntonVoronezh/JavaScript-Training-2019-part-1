@@ -255,6 +255,51 @@
     <hr>
 
 
+    <h3>Задача 11. Даны абзацы и кнопка. Пользователь кликает на эти абзацы в
+        произвольном порядке. Сделайте так, чтобы по нажатию на кнопку в конец
+        каждого абзаца, на который был совершен клик, был добавлен восклицательный знак.</h3>
+
+    <p class="p11">1</p>
+    <p class="p11">2</p>
+    <p class="p11">3</p>
+    <p class="p11">4</p>
+    <p class="p11">5</p>
+    <p class="p11">6</p>
+    <button class="btn11">llllll</button>
+
+
+    <script>
+        const set11 = new Set();
+
+        const p11 = document.querySelectorAll('.p11');
+        const btn11 = document.querySelector('.btn11');
+
+        for (elem of p11) {
+
+            elem.addEventListener('click', function () {
+
+                set11.add(this);
+
+            });
+
+        };
+
+        btn11.addEventListener('click', () => {
+
+            for(elem of set11) {
+
+                elem.innerHTML += '!';
+
+            }
+
+            set11.clear();
+
+        });
+
+
+
+    </script>
+    <hr>
 
 
 
