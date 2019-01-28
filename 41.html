@@ -214,6 +214,25 @@
     <hr>
 
 
+    <h3>Задача 20. Применение деструктуризации для свойств DOM элементов
+        при переборе циклом for of ES6</h3>
+
+    <p id="p1">1</p>
+    <p id="p2">2</p>
+    <p id="p3">3</p>
+
+    <script>
+
+        const allP = document.querySelectorAll('p');
+
+        for(let {id, innerHTML: text} of allP) {
+
+            console.log(id, text);            
+
+        }
+
+    </script>
+    <hr>
 
 
 
