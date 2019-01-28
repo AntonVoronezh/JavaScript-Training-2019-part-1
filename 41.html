@@ -40,6 +40,49 @@
     <hr>
 
 
+    <h3>Задача 7. Найдем пересечение любого количества массивов на ES6</h3>
+
+    <script>
+
+        function func7(...arrs) {
+
+            const result = [];
+
+            // const firstArr = arrs.shift();
+
+            const [firstArr, ...rest] = arrs;
+
+
+            for (let elem of firstArr) {
+
+                if (inArrays(rest, elem)) {
+
+                    result.push(elem);
+
+                }
+
+                // console.log(elem);
+
+
+            };
+
+            return result;
+
+        };
+
+
+ 
+
+
+
+
+
+        console.log(7, func7([1, 2, 3], [4, 2, 5, 6, 1], [2, 3, 5, 1]));
+
+
+    </script>
+    <hr>
+
 
 
 
