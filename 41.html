@@ -71,7 +71,21 @@
         };
 
 
- 
+        function inArrays(argArrs, argElem) {
+
+            for (elem of argArrs) {
+
+                if (!inArray(elem, argElem)) {
+
+                    return false;
+
+                }
+
+            };
+
+            return true;
+
+        };
 
 
 
