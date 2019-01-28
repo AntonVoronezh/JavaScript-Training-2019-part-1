@@ -152,6 +152,11 @@
 
             const elem = document.createElement(argTag);
 
+            elem.style.width = `${w}px`;
+            elem.style.height = `${h}px`;
+            elem.style.border = `${b}`;
+
+            argParent.appendChild(elem);
 
         };
 
