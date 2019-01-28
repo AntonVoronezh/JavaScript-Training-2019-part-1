@@ -185,7 +185,33 @@
     <hr>
 
 
+    <h3>Задача 14. Функция, возвращающая несколько значений изящное использование на ES6</h3>
 
+    <script>
+
+        function func14() {
+
+            const date = new Date();
+
+            return {
+
+                y: date.getFullYear(),
+
+                m: date.getMonth()
+
+            };
+
+        };
+
+
+        let { y: year14, m: month14 } = func14();
+
+
+        // console.log(func14());
+        console.log(year14, month14);
+
+    </script>
+    <hr>
 
 
 
