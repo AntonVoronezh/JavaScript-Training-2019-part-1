@@ -103,6 +103,41 @@
     <hr>
 
 
+    <h3>Задача 6. Пусть даны абзацы. Переберите эти абзацы циклом и создайте
+        коллекцию Map, ключами в которой будут абзацы, а значением - их
+        порядковый номер на странице. Сделайте так, чтобы по клику на любой абзац
+        ему в конец записывался его порядковый номер.</h3>
+
+    <p>@1</p>
+    <p>@2</p>
+    <p>@3</p>
+    <p>@4</p>
+
+    <script>
+
+        const allP = document.querySelectorAll('p');
+
+        const map6 = new Map();
+
+        allP.forEach((elem, i) => {
+
+            map6.set(elem, i);
+
+            elem.addEventListener('click', function () {
+
+                elem.innerHTML += '!';
+
+            });
+
+        });
+
+        console.log(map6);
+
+
+
+    </script>
+    <hr>
+
 
 
     <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
