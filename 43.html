@@ -124,7 +124,21 @@
     </script>
     <hr>
 
+    <h3>Задача 7. Дана строка 'aa aba abba abbba abca abea'.
+        Напишите регулярку, которая найдет строки aa, aba, abba, abbba,
+        не захватив abca abea.</h3>
 
+    <script>
+
+        const str7 = 'aa aba abba abbba abca abea';
+
+        const out7 = str7.replace(/ab*a/g, '!');
+
+        console.log(str7, ' - ', out7);
+
+
+    </script>
+    <hr>
 
 
 
