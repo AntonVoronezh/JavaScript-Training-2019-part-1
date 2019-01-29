@@ -186,9 +186,9 @@
 
     <script>
 
-        const str10 = 'httsps://site.ruhtml';
+        const str10 = 'dgdfgdhghfgh.jpeg';
 
-        const out10 = /(jpg|jpeg)$/.test(str10);
+        const out10 = /jp(e)?g$/.test(str10);
 
 
         console.log(str10, ' - ', out10);
@@ -242,7 +242,7 @@
 
         const str13 = 'aa aba abba  http://sigte.ru abbba abbbba abbbbba';
 
-        const out13 = str13.replace(/(http[s]*:\/\/([0-9a-z-_.]+\.[a-z]{2,}))/g, '<a href="$1">$2</a>');
+        const out13 = str13.replace(/(http[s]?:\/\/([0-9a-z-_.]+\.[a-z]{2,}))/g, '<a href="$1">$2</a>');
 
         console.log(str13, ' - ', out13);
 
