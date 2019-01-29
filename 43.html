@@ -108,6 +108,21 @@
     <hr>
 
 
+    <h3>Задача 6. Дана строка 'aa aba abba abbba abca abea'.
+        Напишите регулярку, которая найдет строки aa, aba по шаблону:
+        буква 'a', буква 'b' один раз или ниодного, буква 'a'.</h3>
+
+    <script>
+
+        const str6 = 'aa aba abba abbba abca abea';
+
+        const out6 = str6.replace(/ab?a/g, '!');
+
+        console.log(str6, ' - ', out6);
+
+
+    </script>
+    <hr>
 
 
 
