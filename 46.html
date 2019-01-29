@@ -197,6 +197,20 @@
 
 
 
+    <h3>Задача 11. Удалите одной регуляркой все повторяющиеся слова из строки, 
+        например для 'dsf xxx xxx sd' должно вернуть 'dsf xxx sd'</h3>
+    
+        <script>
+    
+            const str11 = 'dsf xxx xxx sd';
+    
+            const out11 = str11.replace(/\b(\w+)\s+\1/g, "$1"); ;
+    
+            console.log(str11, ' - ', out11);
+    
+    
+        </script>
+        <hr>
 
 
 
