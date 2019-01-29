@@ -141,6 +141,25 @@
     <hr>
 
 
+    <h3>Задача 8. Дана строка 'ab abab abab abababab abea'.
+        Напишите регулярку, которая найдет строки по шаблону:
+        строка 'ab' повторяется 1 или более раз</h3>
+
+    <script>
+
+        const str8 = 'ab abab abab abababab abea';
+
+        const out8 = str8.replace(/(ab)+/g, '!');
+
+        console.log(str8, ' - ', out8);
+
+
+    </script>
+    <hr>
+
+
+    <h2>На экранировку</h2>
+
 
 
 
