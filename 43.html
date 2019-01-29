@@ -57,6 +57,20 @@
     <hr>
 
 
+    <h3>Задача 3. Дана строка 'aba aca aea abba adca abea'.
+        Напишите регулярку, которая найдет строки abba и abea, не захватив adca</h3>
+
+    <script>
+
+        const str3 = 'aba aca aea abba adca abea';
+
+        const out3 = str3.replace(/ab.a/g, '!');
+
+        console.log(str3, ' - ', out3);
+
+
+    </script>
+    <hr>
 
 
 
