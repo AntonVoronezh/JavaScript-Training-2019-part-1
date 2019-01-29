@@ -91,6 +91,23 @@
     </script>
     <hr>
 
+    <h3>Задача 5. Дана строка 'aa aba abba abbba abca abea'.
+        Напишите регулярку, которая найдет строки aa, aba, abba, abbba по шаблону:
+        буква 'a', буква 'b' любое количество раз (в том числе ниодного раза), буква 'a'.</h3>
+
+    <script>
+
+        const str5 = 'aa aba abba abbba abca abea';
+
+        const out5 = str5.replace(/ab*a/g, '!');
+
+        console.log(str5, ' - ', out5);
+
+
+    </script>
+    <hr>
+
+
 
 
 
