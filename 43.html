@@ -41,6 +41,23 @@
     </script>
     <hr>
 
+    <h3>Задача 2. Дана строка 'aba aca aea abba adca abea'. Напишите регулярку,
+        которая найдет строки abba adca abea по шаблону: буква 'a', 2 любых символа, буква 'a'. </h3>
+
+    <script>
+
+        const str2 = 'aba aca aea abba adca abea';
+
+        const out2 = str2.replace(/a..a/g, '!');
+
+        console.log(out2);
+
+
+    </script>
+    <hr>
+
+
+
 
 
 
