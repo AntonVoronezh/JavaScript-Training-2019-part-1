@@ -73,6 +73,24 @@
     <hr>
 
 
+    <h2>На '+', '*', '?', ()</h2>
+
+    <h3>Задача 4. Дана строка 'aa aba abba abbba abca abea'.
+        Напишите регулярку, которая найдет строки aba, abba, abbba по шаблону:
+        буква 'a', буква 'b' любое количество раз, буква 'a'.</h3>
+
+    <script>
+
+        const str4 = 'aa aba abba abbba abca abea';
+
+        const out4 = str4.replace(/ab+a/g, '!');
+
+        console.log(str4, ' - ', out4);
+
+
+    </script>
+    <hr>
+
 
 
 
