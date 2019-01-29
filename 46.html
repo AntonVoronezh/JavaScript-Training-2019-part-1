@@ -83,6 +83,24 @@
     </script>
     <hr>
 
+    <h3>Задача 4. Дана строка с целыми числами. Найдите числа, стоящие в кавычках и увеличьте их в два раза.
+        Пример: из строки 2aaa'3'bbb'4' сделаем строку 2aaa'6'bbb'8'</h3>
+
+    <script>
+
+        const str4 = `2aaa'3'bbb'4'`;
+
+        const out4 = str4.replace(/[1-9]+(?=')/g, function (match) {
+
+            return match * match;
+
+        });
+
+        console.log(str4, ' - ', out4);
+
+
+    </script>
+    <hr>
 
 
 
