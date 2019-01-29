@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            margin-right: 30px;
+            /* max-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; */
+
+        }
+    </style>
+    <title>AntonVoronezh учеба по JavaScript DOM </title>
+</head>
+
+<body>
+    <h1>AntonVoronezh учеба по JavaScript DOM</h1>
+    <h2>Задачи на регулярные выражения JavaScript. Часть 4</h2>
+
+    <h2>На позитивный и негативный просмотр</h2>
+
+
+    <h3>Задача 1. С помощью позитивного и негативного просмотра найдите
+        все строки по шаблону 3 буквы a, затем буква b и поменяйте 3 буквы
+        a на знак '!'. То есть из 'aaab' нужно сделать '!b'.</h3>
+
+    <script>
+
+        const str1 = 'aaab aaas aaaba';
+
+        const out1 = str1.replace(/aaa(?=b)/g, '!');
+
+        console.log(str1, ' - ', out1);
+
+
+    </script>
+    <hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+</body>
+
+</html>
