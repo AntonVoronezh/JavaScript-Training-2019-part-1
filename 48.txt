@@ -65,17 +65,6 @@
 
         document.cookie = 'name=ffffff';
 
-        // function getCookie(name) {
-
-        //     var matches = document.cookie.match(new RegExp(
-
-        //         '(?:^|\s)' + name.replace(/([.$?*+\\\/{}|()\[\]^])/g, '\\$1') + '=(.*?)(?:;|$)'
-
-        //     ));
-
-        //     return matches ? decodeURIComponent(matches[1]) : undefined;
-
-        // }
 
         function getCookie(c_name) {
             if (document.cookie.length > 0) {
@@ -510,6 +499,8 @@
 
                 document.cookie = 'count=' + (+getCookie('count') + 1);
 
+                p10.innerHTML = `вы посещали эту страницу ${getCookie('count')} раз.`;
+
             } else {
 
                 document.cookie = 'count=1';
@@ -518,15 +509,15 @@
 
             if (getCookie('time')) {
 
-                // document.cookie = 'time=' + (+getCookie('time') + 1);
+                const diff = (date.getTime() - +getCookie('time')) / 1000;
 
-                document.cookie = 'expires=-1'
+                document.cookie = 'time=' + date.getTime();
+
+                p10.innerHTML += ` с последнего захода прошло ${diff} сек.`;
 
             } else {
 
-
-
-               document.cookie = 'time=' + date;
+                document.cookie = 'time=' + date.getTime();
 
             }
 
@@ -535,6 +526,63 @@
 
         console.log(getCookie('count'), getCookie('time'));
     </script>
+    <hr>
+
+
+
+    <h3>Задача 11. Пусть по заходу на страницу показывается определенный
+        рекламный текст. Рядом с ним сделайте кнопку 'убрать', по нажатию
+        на которую этот рекламный текст не показывается этому пользователю
+        ровно один день</h3>
+
+    <div class="adv">
+        <img src="http://code.mu/images/mr-koder/relax.png" class="img11">
+        <button class="btn11">X</button>
+    </div>
+
+    <script>
+        const btn11 = document.querySelector('.btn11');
+        const img11 = document.querySelector('.img11');
+
+        if (getCookie('expires')) {
+
+            btn11.style.display = 'none';
+
+            img11.style.display = 'none';
+
+        } else {
+
+            btn11.style.display = 'block';
+
+            img11.style.display = 'block';
+
+            btn11.addEventListener('click', function () {
+
+                date = new Date();
+
+                date.setDate(date.getDate() + 1);
+
+                date =  date.toUTCString();
+
+                document.cookie = 'expires=' + date;
+
+                btn11.style.display = 'none';
+
+                img11.style.display = 'none';
+
+            });
+
+        }
+
+
+
+
+
+
+    </script>
+
+
+
 
 
 

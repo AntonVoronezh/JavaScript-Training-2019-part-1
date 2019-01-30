@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            margin-right: 30px;
+            /* max-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; */
+
+        }
+    </style>
+    <title>AntonVoronezh учеба по JavaScript DOM </title>
+</head>
+
+<body>
+    <h1>AntonVoronezh учеба по JavaScript DOM</h1>
+    <h2>Задачи на работу с локальным хранилищем </h2>
+
+
+    <h3>Задача 1. Дан текстареа. В него вводится текст. Сделайте так,
+        чтобы после захода на эту страницу через некоторое время, введенный
+        текст остался в текстареа. Текст должен запоминаться в локальном хранилище.</h3>
+
+    <textarea class="txt1" cols="30" rows="10"></textarea>
+
+    <script>
+
+        const txt1 = document.querySelector('.txt1');
+
+
+        txt1.addEventListener('blur', function () {
+
+            localStorage.setItem('txt1', txt1.value)
+
+
+        });
+
+
+        // console.log(localStorage.getItem('txt1'));
+
+
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 2. Дана форма с инпутами, текстареа, чекбоксами, радио кнопочками, селектами и тп.
+        Пользователь вводит какие-то данные и закрывает страницу (не факт, что он заполнил всю форму).
+        Сделайте так, чтобы при следующем заходе на страницу введенные им ранее данные
+        стояли на своих местах. Сделайте ваш скрипт как можно более универсальным.</h3>
+
+    <form action="" class="form2">
+
+        <input type="text" name="inp1">
+        <input type="text" name="inp2">
+        <input type="text" name="inp3">
+
+        <textarea cols="30" rows="10" name="txt" data-number="1"></textarea>
+        <textarea cols="30" rows="10" name="txt" data-number="2"></textarea>
+
+        <input type="checkbox" name="checkbox1" data-number="1">
+        <input type="checkbox" name="checkbox1" data-number="2">
+
+        <input type="radio" name="radio1" data-number="1">
+        <input type="radio" name="radio1" data-number="2">
+        <input type="radio" name="radio1" data-number="3">
+
+        <select name="select">
+            <option data-number="1">1</option>
+            <option data-number="2">2</option>
+            <option data-number="3">3</option>
+            <option data-number="4">4</option>
+            <option data-number="5">5</option>
+            <option data-number="6">6</option>
+        </select>
+
+        <select name="select">
+            <option data-number="1">11</option>
+            <option data-number="2">21</option>
+            <option data-number="3">31</option>
+            <option data-number="4">41</option>
+            <option data-number="5">51</option>
+            <option data-number="6">61</option>
+        </select>
+
+
+    </form>
+
+    <script>
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+         
+
+
+
+
+    </script>
+    <hr>
+
+
+
+
+
+
+
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+</body>
+
+</html>
