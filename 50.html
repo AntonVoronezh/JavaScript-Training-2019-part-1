@@ -308,6 +308,28 @@
         };
 
 
+        function addElementsInObj() {
+
+            const obj = {};
+
+            const inputArr = [];
+
+            if (input.length === 1) {
+
+                inputArr.push(input[0].value);
+
+            } else {
+
+                for (let elem of input) {
+
+                    inputArr.push(elem.value)
+
+                }
+
+            }
+
+            obj.input = inputArr;
+
 
   
 
