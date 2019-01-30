@@ -136,7 +136,26 @@
 
 
 
- 
+            const textareaArr = [];
+
+            if (textarea.length === 1) {
+
+                textareaArr.push(textarea[0].value);
+
+            } else {
+
+                for (let elem of textarea) {
+
+                    textareaArr.push(elem.value)
+
+                }
+
+            }
+
+            obj.textarea = textareaArr;
+
+
+
  
 
 
