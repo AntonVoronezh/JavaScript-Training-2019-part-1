@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #num7st {
+            border: 1px solid #ccc;
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .num7st__none {
+            display: none;
+        }
+
+        .num7st__number {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="num7st">
+        <div class="num7st__title">Загадайте число от 1 до 100 и я угодаю его за 7 попыток.</div>
+        <div class="num7st__count"></div>
+        <div class="num7st__number"></div>
+        <div class="num7st__wrap">
+
+            <button class="num7st__start">начать</button>
+            <button class="num7st__less  num7st__none">меньше</button>
+            <button class="num7st__more  num7st__none">больше</button>
+        </div>
+
+    </div>
+
+    <script>
+        const num7st = document.querySelector('#num7st');
+
+        const start = num7st.querySelector('.num7st__start');
+        const count = num7st.querySelector('.num7st__count');
+        const wrap = num7st.querySelector('.num7st__wrap');
+        const number = num7st.querySelector('.num7st__number');
+        const less = num7st.querySelector('.num7st__less');
+        const more = num7st.querySelector('.num7st__more');
+
+        let flag;
+
+        let startNum = 0;
+
+        let endNum = 100;
+
+        let num = 50;
+
+        let countNum = 0;
+
+
+        start.addEventListener('click', function () {
+
+            // addCount();
+
+            addNumber(num);
+
+            hideStartBtn();
+
+            addBtns();
+
+            startAlgorithm();
+
+        });
+
+
+        function startAlgorithm() {
+
+            addCount();
+
+            if(flag) {
+
+                const newNum = Math.floor(num + (endNum - num) / 2);
+
+                console.log(newNum);
+
+                startNum = num;
+                
+                num = newNum;
+
+
+            }
+
+        };
+
+
+        function moreAlgorithm() {
+
+            flag = true;
+
+            console.log(flag);
+
+            startAlgorithm();
+
+        };
+
+
+        function lessAlgorithm() {
+
+            flag = false;
+
+            console.log(flag);
+
+            startAlgorithm();
+
+        };
+
+
+        function addNumber(argNum = 50) {
+
+            number.innerHTML = argNum;
+
+        };
+
+
+        function addBtns() {
+
+            less.classList.remove('num7st__none');
+
+            more.classList.remove('num7st__none');
+
+            addListeners();
+
+        };
+
+
+        function addListeners() {
+
+            more.addEventListener('click', moreAlgorithm);
+
+            less.addEventListener('click', lessAlgorithm);
+
+        };
+
+
+
+        function createElem(argElem, argClass, argTxt, argParent) {
+
+            const elem = document.createElement(argElem);
+
+            elem.classList.add(argClass);
+
+            elem.innerHTML = argTxt;
+
+            argParent.appendChild(elem);
+
+        };
+
+
+        function addCount() {
+
+            // if (count.innerHTML === '') {
+
+            //     count.innerHTML = 'Попытка #1';
+
+            // } else {
+
+            //     let num = count.innerHTML.split('#')[1];
+
+            //     count.innerHTML = `Попытка #${+num + 1}`;
+
+            // }
+
+            count.innerHTML = `Попытка #${countNum + 1}`;
+
+            countNum += 1;
+
+        };
+
+
+        function hideStartBtn() {
+
+            start.classList.add('num7st__none');
+
+        };
+
+
+    </script>
+</body>
+
+</html>

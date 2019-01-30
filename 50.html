@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            margin-right: 30px;
+            /* max-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; */
+
+        }
+    </style>
+    <title>AntonVoronezh учеба по JavaScript DOM </title>
+</head>
+
+<body>
+    <h1>AntonVoronezh учеба по JavaScript DOM</h1>
+    <h2>Задачи на работу с локальным хранилищем </h2>
+
+
+    <h3>Задача 1. Дан текстареа. В него вводится текст. Сделайте так,
+        чтобы после захода на эту страницу через некоторое время, введенный
+        текст остался в текстареа. Текст должен запоминаться в локальном хранилище.</h3>
+
+    <textarea class="txt1" cols="30" rows="10"></textarea>
+
+    <script>
+
+        const txt1 = document.querySelector('.txt1');
+
+
+        txt1.addEventListener('blur', function () {
+
+            localStorage.setItem('txt1', txt1.value)
+
+
+        });
+
+
+        // console.log(localStorage.getItem('txt1'));
+
+
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 2. Дана форма с инпутами, текстареа, чекбоксами, радио кнопочками, селектами и тп.
+        Пользователь вводит какие-то данные и закрывает страницу (не факт, что он заполнил всю форму).
+        Сделайте так, чтобы при следующем заходе на страницу введенные им ранее данные
+        стояли на своих местах. Сделайте ваш скрипт как можно более универсальным.</h3>
+
+    <form action="" class="form2">
+
+        <input type="text" name="inp1">
+        <input type="text" name="inp2">
+        <input type="text" name="inp3">
+
+        <textarea cols="30" rows="10" name="txt" data-number="1"></textarea>
+        <textarea cols="30" rows="10" name="txt" data-number="2"></textarea>
+
+        <input type="checkbox" name="checkbox1" data-number="1">
+        <input type="checkbox" name="checkbox1" data-number="2">
+
+        <input type="radio" name="radio1" data-number="1">
+        <input type="radio" name="radio1" data-number="2">
+        <input type="radio" name="radio1" data-number="3">
+
+        <select name="select">
+            <option data-number="1">1</option>
+            <option data-number="2">2</option>
+            <option data-number="3">3</option>
+            <option data-number="4">4</option>
+            <option data-number="5">5</option>
+            <option data-number="6">6</option>
+        </select>
+
+        <select name="select">
+            <option data-number="1">11</option>
+            <option data-number="2">21</option>
+            <option data-number="3">31</option>
+            <option data-number="4">41</option>
+            <option data-number="5">51</option>
+            <option data-number="6">61</option>
+        </select>
+
+
+    </form>
+
+    <script>
+
+        const form = document.querySelector('.form2');
+
+        const input = form.querySelectorAll('input[type=text]');
+
+        const textarea = form.querySelectorAll('textarea');
+
+        const checkbox = form.querySelectorAll('input[type=checkbox]');
+
+        const radio = form.querySelectorAll('input[type=radio]');
+
+        const select = form.querySelectorAll('select');
+
+
+
+
+
+
+        function addElementsInObj() {
+
+            const obj = {};
+
+            const inputArr = [];
+
+            if (input.length === 1) {
+
+                inputArr.push(input[0].value);
+
+            } else {
+
+                for (let elem of input) {
+
+                    inputArr.push(elem.value)
+
+                }
+
+            }
+
+            obj.input = inputArr;
+
+
+
+            const textareaArr = [];
+
+            if (textarea.length === 1) {
+
+                textareaArr.push(textarea[0].value);
+
+            } else {
+
+                for (let elem of textarea) {
+
+                    textareaArr.push(elem.value)
+
+                }
+
+            }
+
+            obj.textarea = textareaArr;
+
+
+
+            const checkboxArr = [];
+
+            if (checkbox.length === 1) {
+
+                checkboxArr.push(checkbox[0].checked);
+
+            } else {
+
+                for (let elem of checkbox) {
+
+                    checkboxArr.push(elem.checked)
+
+                }
+
+            }
+
+            obj.checkbox = checkboxArr;
+
+
+
+            const radioArr = [];
+
+            if (radio.length === 1) {
+
+                radioArr.push(radio[0].checked);
+
+            } else {
+
+                for (let elem of radio) {
+
+                    radioArr.push(elem.checked)
+
+                }
+
+            }
+
+            obj.radio = radioArr;
+
+
+
+            const selectArr = [];
+
+            for (let elem of select.options) {
+
+                selectArr.push(elem.selected);
+
+            }
+
+            obj.select = selectArr;
+
+        };
+
+
+         window.addEventListener('unload', function () {
+
+            const obj = addElementsInObj();
+
+            const json = JSON.stringify(obj);
+
+            saveInLocalStorage('obj', json);
+
+
+        });
+
+
+        window.addEventListener('load', function () {
+
+
+            const json = getFromLocalStorage('obj');
+
+
+            const obj = JSON.parse(json);
+
+            getElementsFromObj(obj);
+
+        });
+
+
+
+        function getFromLocalStorage(argName) {
+
+            return localStorage.getItem(argName)
+
+        };
+
+        function saveInLocalStorage(argName, argValue) {
+
+            localStorage.setItem(argName, argValue)
+
+        };
+
+        function getElementsFromObj(argObj) {
+
+            console.log(argObj);
+
+
+            if (input.length !== 0) {
+
+                input.forEach((elem, i) => {
+
+                    elem.value = argObj.input[i];
+
+                });
+
+            }
+
+            if (textarea.length !== 0) {
+
+                textarea.forEach((elem, i) => {
+
+                    elem.value = argObj.textarea[i];
+
+                });
+
+            }
+
+            if (checkbox.length !== 0) {
+
+                checkbox.forEach((elem, i) => {
+
+                    elem.checked = argObj.checkbox[i];
+
+                });
+
+            }
+
+            if (radio.length !== 0) {
+
+                radio.forEach((elem, i) => {
+
+                    elem.checked = argObj.radio[i];
+
+                });
+
+            }
+
+
+            if (select.length !== 0) {
+
+                select.forEach((elem, i) => {
+
+                    const selectedIndex = argObj.select[i].indexOf(true);
+
+                    elem.selectedIndex = selectedIndex;
+
+                });
+
+            }
+
+        };
+
+
+        function addElementsInObj() {
+
+            const obj = {};
+
+            const inputArr = [];
+
+            if (input.length === 1) {
+
+                inputArr.push(input[0].value);
+
+            } else {
+
+                for (let elem of input) {
+
+                    inputArr.push(elem.value)
+
+                }
+
+            }
+
+            obj.input = inputArr;
+
+
+
+            const textareaArr = [];
+
+            if (textarea.length === 1) {
+
+                textareaArr.push(textarea[0].value);
+
+            } else {
+
+                for (let elem of textarea) {
+
+                    textareaArr.push(elem.value)
+
+                }
+
+            }
+
+            obj.textarea = textareaArr;
+
+
+
+            const checkboxArr = [];
+
+            if (checkbox.length === 1) {
+
+                checkboxArr.push(checkbox[0].checked);
+
+            } else {
+
+                for (let elem of checkbox) {
+
+                    checkboxArr.push(elem.checked)
+
+                }
+
+            }
+
+            obj.checkbox = checkboxArr;
+
+
+
+            const radioArr = [];
+
+            if (radio.length === 1) {
+
+                radioArr.push(radio[0].checked);
+
+            } else {
+
+                for (let elem of radio) {
+
+                    radioArr.push(elem.checked)
+
+                }
+
+            }
+
+            obj.radio = radioArr;
+
+
+
+            const selectArr = [];
+
+            if (select.length === 1) {
+
+                const arr = [];
+
+                for (let elem of select[0]) {
+
+                    arr.push(elem.selected);
+
+                }
+
+                selectArr.push(arr);
+
+            } else {
+
+                for (let item of select) {
+
+                    const arr = [];
+
+                    for (let elem of item) {
+
+                        arr.push(elem.selected);
+
+                    }
+
+                    selectArr.push(arr);
+
+                }
+
+            }
+
+            obj.select = selectArr;
+
+            return obj;
+
+        };
+
+
+
+
+    </script>
+    <hr>
+
+
+
+
+
+
+
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+</body>
+
+</html>
