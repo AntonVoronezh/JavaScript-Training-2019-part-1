@@ -211,6 +211,11 @@
 
          window.addEventListener('unload', function () {
 
+            const obj = addElementsInObj();
+
+            const json = JSON.stringify(obj);
+
+            saveInLocalStorage('obj', json);
 
 
         });
