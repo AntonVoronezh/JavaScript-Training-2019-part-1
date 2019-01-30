@@ -352,7 +352,26 @@
 
 
 
-  
+            const checkboxArr = [];
+
+            if (checkbox.length === 1) {
+
+                checkboxArr.push(checkbox[0].checked);
+
+            } else {
+
+                for (let elem of checkbox) {
+
+                    checkboxArr.push(elem.checked)
+
+                }
+
+            }
+
+            obj.checkbox = checkboxArr;
+
+
+
 
 
          
