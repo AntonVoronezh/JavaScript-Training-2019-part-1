@@ -392,7 +392,43 @@
 
 
 
-         
+            const selectArr = [];
+
+            if (select.length === 1) {
+
+                const arr = [];
+
+                for (let elem of select[0]) {
+
+                    arr.push(elem.selected);
+
+                }
+
+                selectArr.push(arr);
+
+            } else {
+
+                for (let item of select) {
+
+                    const arr = [];
+
+                    for (let elem of item) {
+
+                        arr.push(elem.selected);
+
+                    }
+
+                    selectArr.push(arr);
+
+                }
+
+            }
+
+            obj.select = selectArr;
+
+            return obj;
+
+        };
 
 
 
