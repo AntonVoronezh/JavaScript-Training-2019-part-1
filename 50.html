@@ -224,7 +224,12 @@
         window.addEventListener('load', function () {
 
 
- 
+            const json = getFromLocalStorage('obj');
+
+
+            const obj = JSON.parse(json);
+
+            getElementsFromObj(obj);
 
         });
 
