@@ -252,7 +252,15 @@
             console.log(argObj);
 
 
-   
+            if (input.length !== 0) {
+
+                input.forEach((elem, i) => {
+
+                    elem.value = argObj.input[i];
+
+                });
+
+            }
 
 
 
