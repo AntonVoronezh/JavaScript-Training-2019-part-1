@@ -196,7 +196,15 @@
 
 
 
+            const selectArr = [];
 
+            for (let elem of select.options) {
+
+                selectArr.push(elem.selected);
+
+            }
+
+            obj.select = selectArr;
 
         };
 
