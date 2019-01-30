@@ -176,6 +176,24 @@
 
 
 
+            const radioArr = [];
+
+            if (radio.length === 1) {
+
+                radioArr.push(radio[0].checked);
+
+            } else {
+
+                for (let elem of radio) {
+
+                    radioArr.push(elem.checked)
+
+                }
+
+            }
+
+            obj.radio = radioArr;
+
 
 
 
