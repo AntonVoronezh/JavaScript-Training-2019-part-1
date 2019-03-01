@@ -210,7 +210,21 @@
 
                         elem.classList.add('checklist__none');
 
+                        getAllBox2[i].classList.remove('checklist__none');
 
+                        getAllBox2[i].addEventListener('keydown', (event) => {
+
+                            if (event.keyCode === 13 && getAllBox2[i].value !== '') {
+
+                                elem.innerHTML = getAllBox2[i].value;
+
+                                getAllBox2[i].classList.add('checklist__none');
+
+                                elem.classList.remove('checklist__none');
+
+                            }
+
+                        });
 
                         break;
 
