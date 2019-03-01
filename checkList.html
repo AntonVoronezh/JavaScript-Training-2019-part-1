@@ -151,7 +151,13 @@
 
                 getAllBox.forEach(elem => {
 
-     
+                    if (elem.dataset.number === argNum) {
+
+                        elem.disabled = true;
+
+                        addStrike(argNum);
+
+                    }
 
                 });
 
