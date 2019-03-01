@@ -133,7 +133,12 @@
                 const getAllLi = getElem.querySelectorAll('.checklist__li');
 
 
-           
+                if (getAllLi.length === 0) {
+
+                    return 0;
+
+                } 
+
             };
 
 
