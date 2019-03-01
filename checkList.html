@@ -74,7 +74,12 @@
 
                         checklistFunc(event.target.dataset.number);
 
-                    }  
+                    } else if (event.target.classList.contains('checklist__close')) {
+
+                        closeFunc(event.target.dataset.number);
+
+
+                    } 
 
                 });
 
