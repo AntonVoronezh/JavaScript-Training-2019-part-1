@@ -70,7 +70,12 @@
 
                 createLi.addEventListener('click', (event) => {
 
-                 
+                    if (event.target.classList.contains('checklist__ckeckbox')) {
+
+                        checklistFunc(event.target.dataset.number);
+
+                    }  
+
                 });
 
 
