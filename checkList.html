@@ -137,7 +137,11 @@
 
                     return 0;
 
-                } 
+                } else {
+
+                    return +Array.from(getAllLi)[getAllLi.length - 1].dataset.number + 1;
+
+                }
 
             };
 
