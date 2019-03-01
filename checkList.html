@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>checkList from AntonVoronezh</title>
+    <style>
+        body {
+            max-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="checklist" class="checklist"></div>
+
+    <script>
+
+        checklist();
+
+        function checklist() {
+
+            const getElem = document.getElementById('checklist');
+
+            init();
+
+            const getInput = getElem.querySelector('.checklist__input');
+            const getUl = getElem.querySelector('.checklist__ul');
+
+
+            getInput.addEventListener('keydown', (event) => {
+
+                if (event.keyCode === 13 && getInput.value !== '') {
+
+                    addNewNote(getInput.value);
+
+                    getInput.value = '';
+
+                }
+
+            });
+
+
+  
+      
+
+
+
+
+
+
+
+
+
+
+
+        };
+
+    </script>
+</body>
+
+</html>
